@@ -15,6 +15,7 @@ var titleState = {
         this.player = this.game.add.sprite(400, 550, 'player');
         game.physics.arcade.enable(this.player)
         this.player.anchor.setTo(0.5, 0.5);
+        this.player.collideWorldBounds=true;
       
     },
     
