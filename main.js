@@ -25,7 +25,7 @@ var titleState = {
 var mainState = {
     
     // player one variables
-    var player_oneVelocityMod, player_oneScore, player_oneSpeed, player_oneS;
+    // player_oneVelocityMod, player_oneScore, player_oneSpeed, player_oneS;
     
     // player two variables
     
