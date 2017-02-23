@@ -67,7 +67,13 @@ var mainState = {
     },
     
     update: function() {
-        
+        this.player_one.body.velocity.setTo(0,0);
+        if (this.movement.left.isDown){
+            this.player_one.body.velocity.x = -200;
+        }
+        else if (this.movement.right.isDown){
+            this.player_one.body.velocity.x = 200;
+        }
         
     },
     
