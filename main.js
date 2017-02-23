@@ -48,6 +48,7 @@ var mainState = {
         this.playerInputCheck();
         if (this.speedBoost.isDown){
             this.playerSpeedBoost(player_One);
+        }
         
     },
     
