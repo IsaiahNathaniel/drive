@@ -46,7 +46,9 @@ var mainState = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.movement = game.input.keyboard.createCursorKeys();
         
-        this.createPlayers("player_one");
+        this.newPlayer = player_one
+        
+        this.createPlayers(newPlayer);
         
         // score init
         
