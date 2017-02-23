@@ -45,16 +45,7 @@ var mainState = {
         
         
         
-        // player group init --- disabled as players may be handled a different way
-        /*
-        this.players = game.add.group();  // initialize player group
-        this.players.enableBody = true;  //enables collisions
-        this.players.physicsBodyType = Phaser.Physics.ARCADE;  // sets physics
-        this.players.setAll('anchor.x', 0.5); // collision point change
-        this.players.setAll('anchor.y', 0.5);
-        this.players.collideWorldBounds = true; // disallows players to exit screen
-        */
-        
+       
         
         
     },
@@ -82,6 +73,14 @@ var mainState = {
     },
     
     player_twoInit: function() {
+        
+        // special init for player two movement function
+        this.moveRight = game.input.keyboard.addKey(Phaser.Keyboard.D);
+        this.moveLeft = game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.moveUp = game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.moveDown = game.input.keyboard.addKey(Phaser.Keyboard.S);
+        
+        
         this.player_two = this.game.add.sprite(300, 350, 'player');
         game.physics.arcade.enable(this.player_two)
         this.player_two.anchor.setTo(0.5, 0.5);
@@ -109,16 +108,16 @@ var mainState = {
         
         // player_two inputs
         this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/this.player_twoVelocityMod),(this.player_two.body.velocity.y/this.player_twoVelocityMod));
-        if (this.movement.left.isDown){
+        if (this.moveLeft.isDown){
             this.player_two.body.velocity.x = -this.player_twoSpeed;
         }
-        if (this.movement.right.isDown){
+        if (this.moveRight.isDown){
             this.player_two.body.velocity.x = this.player_twoSpeed;
         }
-        if (this.movement.up.isDown) {
+        if (this.moveUp.isDown) {
             this.player_two.body.velocity.y = -this.player_twoSpeed;
         }
-        if (this.movement.down.isDown) {
+        if (this.moveDown.isDown) {
             this.player_two.body.velocity.y = this.player_twoSpeed;
         }
     },
