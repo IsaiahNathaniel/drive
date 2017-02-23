@@ -41,12 +41,12 @@ var mainState = {
          this.player_one = this.game.add.sprite(400, 550, 'player');
          game.physics.arcade.enable(this.player_one)
          this.player_one.anchor.setTo(0.5, 0.5);
-         this.player_one.collideWorldBounds = true;
+         this.player_one.body.collideWorldBounds = true;
         
          this.player_two = this.game.add.sprite(300, 350, 'player');
          game.physics.arcade.enable(this.player_two)
          this.player_two.anchor.setTo(0.5, 0.5);
-         this.player_two.collideWorldBounds = true;
+         this.player_two.body.collideWorldBounds = true;
         // player group init --- disabled as players may be handled a different way
         /*
         this.players = game.add.group();  // initialize player group
