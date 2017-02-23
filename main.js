@@ -5,7 +5,7 @@ var titleState = {
     
     preload: function() {
         game.load.image('player', 'assets/invader.png');    
-        game.load.image('easyButton', 'assets/easyButton.png')
+        game.load.image('easyButton', 'assets/easyButton.png');
         game.load.image('spacebackground', 'assets/background.png');
     },
     
@@ -38,11 +38,30 @@ var titleState = {
 var mainState = {
     
     preload: function() {
-        
-        
+        game.load.image('player', 'assets/invader.png');
+        game.stage.backgroundColor = '#1b1b18';
     },
     
     create: function() {
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        this.movement = game.input.keyboard.createCursorKeys();
+        
+        this.createPlayers(player_one);
+        
+        // score init
+        
+        
+        
+        // player group init --- disabled as players may be handled a different way
+        /*
+        this.players = game.add.group();  // initialize player group
+        this.players.enableBody = true;  //enables collisions
+        this.players.physicsBodyType = Phaser.Physics.ARCADE;  // sets physics
+        this.players.setAll('anchor.x', 0.5); // collision point change
+        this.players.setAll('anchor.y', 0.5);
+        this.players.collideWorldBounds = true; // disallows players to exit screen
+        */
+        
         
         
     },
@@ -55,6 +74,14 @@ var mainState = {
     restartGame: function() {
         // Restarts game
         game.state.start('main')
+    },
+    
+    createPlayers: function(playerName) {
+         this.playerName = this.game.add.sprite(400, 550, 'player');
+         game.physics.arcade.enable(this.playerName)
+         this.playerName.anchor.setTo(0.5, 0.5);
+         this.playerName.collideWorldBounds=true;
+        
     },
     
 };
