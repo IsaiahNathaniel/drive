@@ -39,20 +39,12 @@ var mainState = {
         
         
         // player inits
-        this.player_one = this.game.add.sprite(400, 550, 'player');
-        game.physics.arcade.enable(this.player_one)
-        this.player_one.anchor.setTo(0.5, 0.5);
-        this.player_one.body.collideWorldBounds = true;
-        this.player_oneSpeed = 100;
-        this.player_oneVelocityMod = 1.17;
-        this.player_oneScore = 0;
+        this.player_oneInit();
+        this.player_twoInit();
         
         
         
-        this.player_two = this.game.add.sprite(300, 350, 'player');
-        game.physics.arcade.enable(this.player_two)
-        this.player_two.anchor.setTo(0.5, 0.5);
-        this.player_two.body.collideWorldBounds = true;
+        
         // player group init --- disabled as players may be handled a different way
         /*
         this.players = game.add.group();  // initialize player group
@@ -79,43 +71,55 @@ var mainState = {
     
     
     // this function may not be used
-    createPlayers: function(playerName) {
-         this.playerName = this.game.add.sprite(400, 550, 'player');
-         game.physics.arcade.enable(this.playerName)
-         this.playerName.anchor.setTo(0.5, 0.5);
-         this.playerName.collideWorldBounds=true;
-        
+    player_oneInit: function() {
+        this.player_one = this.game.add.sprite(400, 550, 'player');
+        game.physics.arcade.enable(this.player_one)
+        this.player_one.anchor.setTo(0.5, 0.5);
+        this.player_one.body.collideWorldBounds = true;
+        this.player_oneSpeed = 100;
+        this.player_oneVelocityMod = 1.17;
+        this.player_oneScore = 0;
+    },
+    
+    player_twoInit: function() {
+        this.player_two = this.game.add.sprite(300, 350, 'player');
+        game.physics.arcade.enable(this.player_two)
+        this.player_two.anchor.setTo(0.5, 0.5);
+        this.player_two.body.collideWorldBounds = true;
+        this.player_twoSpeed = 100;
+        this.player_twoVelocityMod = 1.17;
+        this.player_twoScore = 0;
     },
     
     playerInputCheck: function() {
         // player_one inputs
         this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_oneVelocityMod),(this.player_one.body.velocity.y/this.player_oneVelocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movement
         if (this.movement.left.isDown){
-            this.player_one.body.velocity.x = -100;
+            this.player_one.body.velocity.x = -this.player_oneSpeed;
         }
         if (this.movement.right.isDown){
             this.player_one.body.velocity.x = this.player_oneSpeed;
         }
         if (this.movement.up.isDown) {
-            this.player_one.body.velocity.y = -100;
+            this.player_one.body.velocity.y = -this.player_oneSpeed;
         }
         if (this.movement.down.isDown) {
-            this.player_one.body.velocity.y = 100;
+            this.player_one.body.velocity.y = this.player_oneSpeed;
         }
         
         // player_two inputs
-        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.17),(this.player_two.body.velocity.y/1.17));
+        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/this.player_twoVelocityMod),(this.player_two.body.velocity.y/this.player_twoVelocityMod));
         if (this.movement.left.isDown){
-            this.player_two.body.velocity.x = -100;
+            this.player_two.body.velocity.x = -this.player_twoSpeed;
         }
         if (this.movement.right.isDown){
-            this.player_two.body.velocity.x = 100;
+            this.player_two.body.velocity.x = this.player_twoSpeed;
         }
         if (this.movement.up.isDown) {
-            this.player_two.body.velocity.y = -100;
+            this.player_two.body.velocity.y = -this.player_twoSpeed;
         }
         if (this.movement.down.isDown) {
-            this.player_two.body.velocity.y = 100;
+            this.player_two.body.velocity.y = this.player_twoSpeed;
         }
     },
     
