@@ -4,14 +4,14 @@ var titleState = {
     
     preload: function() {
         game.load.image('player', 'assets/invader.png');    
-     
+        game.load.image('easyButton', 'assets/easyButton.png')
     },
     
     create: function() {
-        this.spaceSprite = game.add.tileSprite(0,0, 800, 600, 'spacebackground')
+        // this.spaceSprite = game.add.tileSprite(0,0, 800, 600, 'spacebackground')
         this.startGameButton = game.add.button(300, 220, 'easyButton', this.startGame, this);
         this.movement = game.input.keyboard.createCursorKeys();
-        this.fireProjectile = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        // this.fireProjectile = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.player = this.game.add.sprite(400, 550, 'player');
         game.physics.arcade.enable(this.player)
         this.player.anchor.setTo(0.5, 0.5);
