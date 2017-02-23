@@ -33,6 +33,7 @@ var mainState = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.renderer.renderSession.roundPixels = true;
         this.movement = game.input.keyboard.createCursorKeys();
+        this.speedBoost = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         
   
         // score init
@@ -41,17 +42,12 @@ var mainState = {
         // player inits
         this.player_oneInit();
         this.player_twoInit();
-        
-        
-        
-        
-       
-        
-        
     },
     
     update: function() {
         this.playerInputCheck();
+        if (this.speedBoost.isDown){
+            this.playerSpeedBoost(player_One);
         
     },
     
@@ -120,6 +116,13 @@ var mainState = {
         if (this.moveDown.isDown) {
             this.player_two.body.velocity.y = this.player_twoSpeed;
         }
+    },
+    
+    playerSpeedBoost: function(player) {
+        //this.player = player;
+        this.+player+Speed = 200;
+      
+        
     },
     
 };
