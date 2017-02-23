@@ -1,5 +1,6 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameDiv');
 
+// title state will be worked on later
 var titleState = {
     
     preload: function() {
@@ -60,4 +61,4 @@ var mainState = {
 
 game.state.add('title', titleState);
 game.state.add('main', mainState);
-game.state.start('title');
+game.state.start('main');
