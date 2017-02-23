@@ -25,7 +25,7 @@ var titleState = {
 var mainState = {
     
     // player one variables
-    // player_oneVelocityMod, player_oneScore, player_oneSpeed, player_oneS;
+    this.player_oneSpeed = 100;
     
     // player two variables
     
@@ -92,33 +92,33 @@ var mainState = {
     
     playerInputCheck: function() {
         // player_one inputs
-        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/1.2),(this.player_one.body.velocity.y/1.2));
+        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/1.17),(this.player_one.body.velocity.y/1.17));
         if (this.movement.left.isDown){
-            this.player_one.body.velocity.x = -200;
+            this.player_one.body.velocity.x = -100;
         }
         if (this.movement.right.isDown){
-            this.player_one.body.velocity.x = 200;
+            this.player_one.body.velocity.x = this.player_oneSpeed;
         }
         if (this.movement.up.isDown) {
-            this.player_one.body.velocity.y = -200;
+            this.player_one.body.velocity.y = -100;
         }
         if (this.movement.down.isDown) {
-            this.player_one.body.velocity.y = 200;
+            this.player_one.body.velocity.y = 100;
         }
         
         // player_two inputs
-        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.15),(this.player_two.body.velocity.y/1.15));
+        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.17),(this.player_two.body.velocity.y/1.17));
         if (this.movement.left.isDown){
-            this.player_two.body.velocity.x = -200;
+            this.player_two.body.velocity.x = -100;
         }
         if (this.movement.right.isDown){
-            this.player_two.body.velocity.x = 200;
+            this.player_two.body.velocity.x = 100;
         }
         if (this.movement.up.isDown) {
-            this.player_two.body.velocity.y = -200;
+            this.player_two.body.velocity.y = -100;
         }
         if (this.movement.down.isDown) {
-            this.player_two.body.velocity.y = 200;
+            this.player_two.body.velocity.y = 100;
         }
     },
     
