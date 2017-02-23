@@ -12,25 +12,12 @@ var titleState = {
     create: function() {
         this.spaceSprite = game.add.tileSprite(0,0, 800, 600, 'spacebackground')
         this.startGameButton = game.add.button(300, 220, 'easyButton', this.startGame, this);
-        this.movement = game.input.keyboard.createCursorKeys();
-        // this.fireProjectile = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        this.player = this.game.add.sprite(400, 550, 'player');
-        game.physics.arcade.enable(this.player)
-        this.player.anchor.setTo(0.5, 0.5);
-        this.player.collideWorldBounds=true;
+       
       
     },
     
     update: function() {
-        this.player.body.velocity.setTo(0,0);
-        if (this.movement.left.isDown){
-            this.player.body.velocity.x = -200;
-        }
-        else if (this.movement.right.isDown){
-            this.player.body.velocity.x = 200;
-        }
-
-        
+   
     },
 
 };
@@ -45,9 +32,7 @@ var mainState = {
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.movement = game.input.keyboard.createCursorKeys();
-        
-        
-        
+  
         // score init
         
         
@@ -105,10 +90,10 @@ var mainState = {
             this.player_one.body.velocity.x = 200;
         }
         else if (this.movement.up.isDown) {
-            this.player_one.body.velocity.y = 200;
+            this.player_one.body.velocity.y = -200;
         }
         else if (this.movement.down.isDown) {
-            this.player_one.body.velocity.y = -200;
+            this.player_one.body.velocity.y = 200;
         }
         
         // player_two inputs
