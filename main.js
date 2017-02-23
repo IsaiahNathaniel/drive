@@ -24,6 +24,9 @@ var titleState = {
 
 var mainState = {
     
+    
+    
+    
     preload: function() {
         game.load.image('player', 'assets/invader.png');
         game.stage.backgroundColor = '#1b1b18';
@@ -42,6 +45,7 @@ var mainState = {
          game.physics.arcade.enable(this.player_one)
          this.player_one.anchor.setTo(0.5, 0.5);
          this.player_one.body.collideWorldBounds = true;
+         this.player_one.data.velocityMod = 1.1;
         
          this.player_two = this.game.add.sprite(300, 350, 'player');
          game.physics.arcade.enable(this.player_two)
@@ -83,7 +87,7 @@ var mainState = {
     
     playerInputCheck: function() {
         // player_one inputs
-        this.player_one.body.velocity.setTo(0,0);
+        this.player_one.body.velocity.setTo((this.player_two.body.velocity.x/this.player_one.data.velocityMod),(this.player_two.body.velocity.y/this.player_one.data.velocityMod));
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -200;
         }
