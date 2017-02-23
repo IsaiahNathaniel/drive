@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameDiv');
+var game = new Phaser.Game(1280, 800, Phaser.AUTO, 'gameDiv');
 
 // title state will be worked on later
 var titleState = {
