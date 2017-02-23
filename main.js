@@ -67,6 +67,7 @@ var mainState = {
     
     update: function() {
         this.playerInputCheck();
+        println(this.player_one.data.velocityMod);
         
     },
     
@@ -87,7 +88,7 @@ var mainState = {
     
     playerInputCheck: function() {
         // player_one inputs
-        this.player_one.body.velocity.setTo((this.player_two.body.velocity.x/this.player_one.data.velocityMod),(this.player_two.body.velocity.y/this.player_one.data.velocityMod));
+        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/1.01),(this.player_one.body.velocity.y/1.01));
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -200;
         }
@@ -102,7 +103,7 @@ var mainState = {
         }
         
         // player_two inputs
-        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.1),(this.player_two.body.velocity.y/1.1));
+        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.05),(this.player_two.body.velocity.y/1.05));
         if (this.movement.left.isDown){
             this.player_two.body.velocity.x = -200;
         }
