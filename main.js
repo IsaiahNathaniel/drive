@@ -45,7 +45,6 @@ var mainState = {
          game.physics.arcade.enable(this.player_one)
          this.player_one.anchor.setTo(0.5, 0.5);
          this.player_one.body.collideWorldBounds = true;
-         this.player_one.data.velocityMod = 1.1;
         
          this.player_two = this.game.add.sprite(300, 350, 'player');
          game.physics.arcade.enable(this.player_two)
@@ -67,7 +66,6 @@ var mainState = {
     
     update: function() {
         this.playerInputCheck();
-        println(this.player_one.data.velocityMod);
         
     },
     
