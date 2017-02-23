@@ -86,13 +86,13 @@ var mainState = {
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -200;
         }
-        else if (this.movement.right.isDown){
+        if (this.movement.right.isDown){
             this.player_one.body.velocity.x = 200;
         }
-        else if (this.movement.up.isDown) {
+        if (this.movement.up.isDown) {
             this.player_one.body.velocity.y = -200;
         }
-        else if (this.movement.down.isDown) {
+        if (this.movement.down.isDown) {
             this.player_one.body.velocity.y = 200;
         }
         
@@ -101,13 +101,13 @@ var mainState = {
         if (this.movement.left.isDown){
             this.player_two.body.velocity.x = -200;
         }
-        else if (this.movement.right.isDown){
+        if (this.movement.right.isDown){
             this.player_two.body.velocity.x = 200;
         }
-        else if (this.movement.up.isDown) {
+        if (this.movement.up.isDown) {
             this.player_two.body.velocity.y = -200;
         }
-        else if (this.movement.down.isDown) {
+        if (this.movement.down.isDown) {
             this.player_two.body.velocity.y = 200;
         }
     },
