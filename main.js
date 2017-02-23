@@ -105,10 +105,10 @@ var mainState = {
             this.player_two.body.velocity.x = 200;
         }
         else if (this.movement.up.isDown) {
-            this.player_two.body.velocity.y = 200;
+            this.player_two.body.velocity.y = -200;
         }
         else if (this.movement.down.isDown) {
-            this.player_two.velocity.y = -200;
+            this.player_two.body.velocity.y = 200;
         }
     },
     
