@@ -24,15 +24,6 @@ var titleState = {
 
 var mainState = {
     
-    // player one variables
-    var player_oneSpeed = 100;
-    
-    // player two variables
-    
-    
-    //other vars
-    
-    
     preload: function() {
         game.load.image('player', 'assets/invader.png');
         game.stage.backgroundColor = '#1b1b18';
@@ -42,20 +33,26 @@ var mainState = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.renderer.renderSession.roundPixels = true;
         this.movement = game.input.keyboard.createCursorKeys();
+        
   
         // score init
         
         
         // player inits
-         this.player_one = this.game.add.sprite(400, 550, 'player');
-         game.physics.arcade.enable(this.player_one)
-         this.player_one.anchor.setTo(0.5, 0.5);
-         this.player_one.body.collideWorldBounds = true;
+        this.player_one = this.game.add.sprite(400, 550, 'player');
+        game.physics.arcade.enable(this.player_one)
+        this.player_one.anchor.setTo(0.5, 0.5);
+        this.player_one.body.collideWorldBounds = true;
+        this.player_oneSpeed = 100;
+        this.player_oneVelocityMod = 1.17;
+        this.player_oneScore = 0;
         
-         this.player_two = this.game.add.sprite(300, 350, 'player');
-         game.physics.arcade.enable(this.player_two)
-         this.player_two.anchor.setTo(0.5, 0.5);
-         this.player_two.body.collideWorldBounds = true;
+        
+        
+        this.player_two = this.game.add.sprite(300, 350, 'player');
+        game.physics.arcade.enable(this.player_two)
+        this.player_two.anchor.setTo(0.5, 0.5);
+        this.player_two.body.collideWorldBounds = true;
         // player group init --- disabled as players may be handled a different way
         /*
         this.players = game.add.group();  // initialize player group
@@ -92,7 +89,7 @@ var mainState = {
     
     playerInputCheck: function() {
         // player_one inputs
-        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/1.17),(this.player_one.body.velocity.y/1.17));
+        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_oneVelocityMod),(this.player_one.body.velocity.y/this.player_oneVelocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movement
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -100;
         }
