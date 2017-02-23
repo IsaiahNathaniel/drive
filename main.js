@@ -31,6 +31,7 @@ var mainState = {
     
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
+        this.game.renderer.renderSession.roundPixels = true;
         this.movement = game.input.keyboard.createCursorKeys();
   
         // score init
