@@ -25,7 +25,7 @@ var titleState = {
 var mainState = {
     
     // player one variables
-    this.player_oneSpeed = 100;
+    player_oneSpeed = 100;
     
     // player two variables
     
