@@ -24,7 +24,13 @@ var titleState = {
 
 var mainState = {
     
+    // player one variables
+    var player_oneVelocityMod, player_oneScore, player_oneSpeed, player_oneS;
     
+    // player two variables
+    
+    
+    //other vars
     
     
     preload: function() {
@@ -86,7 +92,7 @@ var mainState = {
     
     playerInputCheck: function() {
         // player_one inputs
-        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/1.01),(this.player_one.body.velocity.y/1.01));
+        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/1.2),(this.player_one.body.velocity.y/1.2));
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -200;
         }
@@ -101,7 +107,7 @@ var mainState = {
         }
         
         // player_two inputs
-        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.05),(this.player_two.body.velocity.y/1.05));
+        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.15),(this.player_two.body.velocity.y/1.15));
         if (this.movement.left.isDown){
             this.player_two.body.velocity.x = -200;
         }
