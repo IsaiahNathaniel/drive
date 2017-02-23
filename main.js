@@ -101,6 +101,38 @@ var mainState = {
         
     },
     
+    playerInputCheck: function() {
+        // player_one inputs
+        this.player_one.body.velocity.setTo(0,0);
+        if (this.movement.left.isDown){
+            this.player_one.body.velocity.x = -200;
+        }
+        else if (this.movement.right.isDown){
+            this.player_one.body.velocity.x = 200;
+        }
+        else if (this.movement.up.isDown) {
+            this.player_one.body.velocity.y = 200;
+        }
+        else if (this.movement.down.isDown) {
+            this.player_one.body.velocity.y = -200;
+        }
+        
+        // player_two inputs
+        this.player_two.body.velocity.setTo(0,0);
+        if (this.movement.left.isDown){
+            this.player_two.body.velocity.x = -200;
+        }
+        else if (this.movement.right.isDown){
+            this.player_two.body.velocity.x = 200;
+        }
+        else if (this.movement.up.isDown) {
+            this.player_two.body.velocity.y = 200;
+        }
+        else if (this.movement.down.isDown) {
+            this.player_two.velocity.y = -200;
+        }
+    },
+    
 };
 
 game.state.add('title', titleState);
