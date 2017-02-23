@@ -98,7 +98,7 @@ var mainState = {
         }
         
         // player_two inputs
-        this.player_two.body.velocity.setTo(this.player_two.body.velocity.x,this.player_two.body.velocity.y);
+        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/1.1),(this.player_two.body.velocity.y/1.1));
         if (this.movement.left.isDown){
             this.player_two.body.velocity.x = -200;
         }
