@@ -140,7 +140,8 @@ var mainState = {
     },
     
     playerSpeedBoost: function(player) {
-        this.player.speed = 200;
+        this.object = player;
+        this.object.speed = 200;
       
         
     },
