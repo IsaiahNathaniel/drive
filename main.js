@@ -65,7 +65,7 @@ var mainState = {
         this.player_one.anchor.setTo(0.5, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.speed = 100;
-        this.player_one.velocityMod = 1.17;
+        this.player_one.velocityMod = 1.25;
         this.player_one.score = 0;
     },
    
@@ -84,7 +84,7 @@ var mainState = {
         this.player_two.anchor.setTo(0.5, 0.5);
         this.player_two.body.collideWorldBounds = true;
         this.player_two.speed = 100;
-        this.player_two.velocityMod = 1.17;
+        this.player_two.velocityMod = 1.25;
         this.player_two.score = 0;
     },
     
