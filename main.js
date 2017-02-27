@@ -96,6 +96,7 @@ var mainState = {
     playerInputCheck: function() {
         // player_one inputs
         this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_oneVelocityMod),(this.player_one.body.velocity.y/this.player_oneVelocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movement
+        /*
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -this.player_oneSpeed;
         }
@@ -107,6 +108,19 @@ var mainState = {
         }
         if (this.movement.down.isDown) {
             this.player_one.body.velocity.y = this.player_oneSpeed;
+        } */
+        
+        if (this.movement.left.isDown){
+            this.player_one.body.velocity.x = -this.player_one.speed;
+        }
+        if (this.movement.right.isDown){
+            this.player_one.body.velocity.x = this.player_one.speed;
+        }
+        if (this.movement.up.isDown) {
+            this.player_one.body.velocity.y = -this.player_one.speed;
+        }
+        if (this.movement.down.isDown) {
+            this.player_one.body.velocity.y = this.player_one.speed;
         }
         
         // player_two inputs
