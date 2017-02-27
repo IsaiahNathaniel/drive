@@ -65,15 +65,10 @@ var mainState = {
         this.player_one.anchor.setTo(0.5, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.speed = 100;
-        this.player_oneVelocityMod = 1.17;
-        this.player_oneScore = 0;
+        this.player_one.velocityMod = 1.17;
+        this.player_one.score = 0;
     },
-    
-    player_oneSpeedSet: function() {
-        
-        
-        
-    },
+   
     
     player_twoInit: function() {
         
@@ -88,28 +83,14 @@ var mainState = {
         game.physics.arcade.enable(this.player_two)
         this.player_two.anchor.setTo(0.5, 0.5);
         this.player_two.body.collideWorldBounds = true;
-        this.player_twoSpeed = 100;
-        this.player_twoVelocityMod = 1.17;
-        this.player_twoScore = 0;
+        this.player_two.speed = 100;
+        this.player_two.velocityMod = 1.17;
+        this.player_two.score = 0;
     },
     
     playerInputCheck: function() {
         // player_one inputs
-        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_oneVelocityMod),(this.player_one.body.velocity.y/this.player_oneVelocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movement
-        /*
-        if (this.movement.left.isDown){
-            this.player_one.body.velocity.x = -this.player_oneSpeed;
-        }
-        if (this.movement.right.isDown){
-            this.player_one.body.velocity.x = this.player_oneSpeed;
-        }
-        if (this.movement.up.isDown) {
-            this.player_one.body.velocity.y = -this.player_oneSpeed;
-        }
-        if (this.movement.down.isDown) {
-            this.player_one.body.velocity.y = this.player_oneSpeed;
-        } */
-        
+        this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_one.velocityMod),(this.player_one.body.velocity.y/this.player_one.velocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movemeny
         if (this.movement.left.isDown){
             this.player_one.body.velocity.x = -this.player_one.speed;
         }
@@ -124,18 +105,18 @@ var mainState = {
         }
         
         // player_two inputs
-        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/this.player_twoVelocityMod),(this.player_two.body.velocity.y/this.player_twoVelocityMod));
+        this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/this.player_two.velocityMod),(this.player_two.body.velocity.y/this.player_two.velocityMod));
         if (this.moveLeft.isDown){
-            this.player_two.body.velocity.x = -this.player_twoSpeed;
+            this.player_two.body.velocity.x = -this.player_two.speed;
         }
         if (this.moveRight.isDown){
-            this.player_two.body.velocity.x = this.player_twoSpeed;
+            this.player_two.body.velocity.x = this.player_two.speed;
         }
         if (this.moveUp.isDown) {
-            this.player_two.body.velocity.y = -this.player_twoSpeed;
+            this.player_two.body.velocity.y = -this.player_two.speed;
         }
         if (this.moveDown.isDown) {
-            this.player_two.body.velocity.y = this.player_twoSpeed;
+            this.player_two.body.velocity.y = this.player_two.speed;
         }
     },
     
