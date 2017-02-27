@@ -47,7 +47,7 @@ var mainState = {
     update: function() {
         this.playerInputCheck();
         if (this.speedBoost.isDown){
-            this.playerSpeedBoost(player_one);
+            this.playerSpeedBoost(this.player_one);
         }
         
     },
@@ -140,8 +140,7 @@ var mainState = {
     },
     
     playerSpeedBoost: function(player) {
-        this.object = player;
-        this.object.speed = 200;
+        this.player.speed = 200;
       
         
     },
