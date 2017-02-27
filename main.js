@@ -121,7 +121,7 @@ var mainState = {
     
     playerSpeedBoost: function(player) {
         //this.player = player;
-        this.+player+Speed = 200;
+        this.player+"Speed" = 200;
       
         
     },
