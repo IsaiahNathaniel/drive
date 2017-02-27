@@ -47,7 +47,7 @@ var mainState = {
     update: function() {
         this.playerInputCheck();
         if (this.speedBoost.isDown){
-            this.playerSpeedBoost(player_One);
+            this.playerSpeedBoost(player_one);
         }
         
     },
@@ -64,9 +64,15 @@ var mainState = {
         game.physics.arcade.enable(this.player_one)
         this.player_one.anchor.setTo(0.5, 0.5);
         this.player_one.body.collideWorldBounds = true;
-        this.player_oneSpeed = 100;
+        this.player_one.speed = 100;
         this.player_oneVelocityMod = 1.17;
         this.player_oneScore = 0;
+    },
+    
+    player_oneSpeedSet: function() {
+        
+        
+        
     },
     
     player_twoInit: function() {
@@ -120,8 +126,7 @@ var mainState = {
     },
     
     playerSpeedBoost: function(player) {
-        //this.player = player;
-        this.player+"Speed" = 200;
+        this.player.speed = 200;
       
         
     },
