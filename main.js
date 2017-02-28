@@ -32,8 +32,7 @@ var mainState = {
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.renderer.renderSession.roundPixels = true;
-        this.movement = game.input.keyboard.createCursorKeys();
-        this.speedBoost = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        
         
   
         // score init
@@ -60,6 +59,10 @@ var mainState = {
     
     // this function may not be used
     player_oneInit: function() {
+        // directional keys
+        this.movement = game.input.keyboard.createCursorKeys();
+        this.player_one.speedBoost = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD2);
+        
         this.player_one = this.game.add.sprite(400, 550, 'player');
         game.physics.arcade.enable(this.player_one)
         this.player_one.anchor.setTo(0.5, 0.5);
@@ -67,7 +70,6 @@ var mainState = {
         this.player_one.speed = 100;
         this.player_one.velocityMod = 1.25;
         this.player_one.score = 0;
-        this.player_one.tempTime = 0;
     },
    
     
@@ -78,7 +80,7 @@ var mainState = {
         this.moveLeft = game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.moveUp = game.input.keyboard.addKey(Phaser.Keyboard.W);
         this.moveDown = game.input.keyboard.addKey(Phaser.Keyboard.S);
-        
+        this.player_two.speedBoost = game.input.keyboard.addKey(Phaser.Keyboard.R);
         
         this.player_two = this.game.add.sprite(300, 350, 'player');
         game.physics.arcade.enable(this.player_two)
@@ -104,6 +106,10 @@ var mainState = {
         if (this.movement.down.isDown) {
             this.player_one.body.velocity.y = this.player_one.speed;
         }
+        if (this.player_one.speedBoost.isDown) {
+            this.playerSpeedBoost(this.player_one);   
+        }
+        
         
         // player_two inputs
         this.player_two.body.velocity.setTo((this.player_two.body.velocity.x/this.player_two.velocityMod),(this.player_two.body.velocity.y/this.player_two.velocityMod));
@@ -119,15 +125,15 @@ var mainState = {
         if (this.moveDown.isDown) {
             this.player_two.body.velocity.y = this.player_two.speed;
         }
+        if (this.player_two.speedBoost.isDown) {
+            this.playerSpeedBoost(this.player_two);   
+        }
     },
     
     playerSpeedBoost: function(player) {
-        player.tempTime = game.time.now + 1500;
-        console.log(player.tempTime);
-        player.speed = 200;
-        setTimeout(function(){ player.speed = 100; }, 600);
+        player.speed = 200; // player speedboost modifier
+        setTimeout(function(){ player.speed = 100; }, 1500);  // waits 1500 ms before reverting speed using an anonymous function
        
-        
     },
     
 };
