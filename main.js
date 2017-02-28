@@ -125,7 +125,7 @@ var mainState = {
         player.tempTime = game.time.now + 1500;
         console.log(player.tempTime);
         player.speed = 200;
-       
+        setTimeout(function(){ player.speed = 100; }, 600);
        
         
     },
