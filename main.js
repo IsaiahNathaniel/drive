@@ -67,6 +67,7 @@ var mainState = {
         this.player_one.speed = 100;
         this.player_one.velocityMod = 1.25;
         this.player_one.score = 0;
+        this.player_one.tempTime = 0;
     },
    
     
