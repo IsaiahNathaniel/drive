@@ -67,7 +67,7 @@ var mainState = {
         this.player_one.speed = 100;
         this.player_one.velocityMod = 1.25;
         this.player_one.score = 0;
-        this.player_one.tempTime = 0;
+        this.player_one.temporaryTime = 0;
     },
    
     
@@ -122,8 +122,8 @@ var mainState = {
     },
     
     playerSpeedBoost: function(player) {
-        player.tempTime = game.time.now + 1500;
-        println(player.tempTime);
+        // player.tempTime = game.time.now + 1500;
+        println(player.temporaryTime);
         player.speed = 200;
        
        
