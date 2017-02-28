@@ -123,13 +123,10 @@ var mainState = {
     
     playerSpeedBoost: function(player) {
         player.tempTime = game.time.now + 1500;
-        while (player.tempTime > game.time.now) {
+        println(player.tempTime);
         player.speed = 200;
-        }
-        player.speed = 100;
-        
-        
-      
+       
+       
         
     },
     
