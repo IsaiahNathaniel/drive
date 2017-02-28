@@ -61,7 +61,7 @@ var mainState = {
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
-        this.player_one.speedBoost = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD2);
+        this.player_oneSpeedBoost = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD2);
         
         this.player_one = this.game.add.sprite(400, 550, 'player');
         game.physics.arcade.enable(this.player_one)
@@ -80,7 +80,7 @@ var mainState = {
         this.moveLeft = game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.moveUp = game.input.keyboard.addKey(Phaser.Keyboard.W);
         this.moveDown = game.input.keyboard.addKey(Phaser.Keyboard.S);
-        this.player_two.speedBoost = game.input.keyboard.addKey(Phaser.Keyboard.R);
+        this.player_twoSpeedBoost = game.input.keyboard.addKey(Phaser.Keyboard.R);
         
         this.player_two = this.game.add.sprite(300, 350, 'player');
         game.physics.arcade.enable(this.player_two)
@@ -106,7 +106,7 @@ var mainState = {
         if (this.movement.down.isDown) {
             this.player_one.body.velocity.y = this.player_one.speed;
         }
-        if (this.player_one.speedBoost.isDown) {
+        if (this.player_oneSpeedBoost.isDown) {
             this.playerSpeedBoost(this.player_one);   
         }
         
@@ -125,7 +125,7 @@ var mainState = {
         if (this.moveDown.isDown) {
             this.player_two.body.velocity.y = this.player_two.speed;
         }
-        if (this.player_two.speedBoost.isDown) {
+        if (this.player_twoSpeedBoost.isDown) {
             this.playerSpeedBoost(this.player_two);   
         }
     },
