@@ -58,7 +58,7 @@ var mainState = {
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
-        this.player_oneSpeedBoost = game.input.keyboard.addKey(Phaser.Keyboard.KEYPAD2);
+        this.player_oneSpeedBoost = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD_2);
         
         this.player_one = this.game.add.sprite(400, 550, 'player');
         game.physics.arcade.enable(this.player_one)
