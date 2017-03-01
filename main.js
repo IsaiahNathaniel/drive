@@ -52,9 +52,8 @@ var mainState = {
         // Restarts game
         game.state.start('main')
     },
+   
     
-    
-    // this function may not be used
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
@@ -67,6 +66,7 @@ var mainState = {
         this.player_one.speed = 100;
         this.player_one.velocityMod = 1.25;
         this.player_one.score = 0;
+        this.player_one.speedTimer = 0;
     },
    
     
@@ -86,6 +86,7 @@ var mainState = {
         this.player_two.speed = 100;
         this.player_two.velocityMod = 1.25;
         this.player_two.score = 0;
+        this.player_two.speedTimer = 0;
     },
     
     playerInputCheck: function() {
@@ -128,9 +129,22 @@ var mainState = {
     },
     
     playerSpeedBoost: function(player) {
-        player.speed = 200; // player speedboost modifier
-        setTimeout(function(){ player.speed = 100; }, 1500);  // waits 1500 ms before reverting speed using an anonymous function
-       
+        if (this.game.time.now > player.speedTimer) {
+            
+            player.speed = 200; // player speedboost modifier
+            // place visual here and let visual revert inside setTimeout function below
+            setTimeout(function(){ player.speed = 100; }, 1500);  // waits 1500 ms before reverting speed using an anonymous function
+            player.speedTimer = this.game.time.now + 10000;
+        }
+        else {
+            // play sound or maybe a visual if not available?
+        }
+        
+    },
+        
+    playerRockThrow: function(player) {
+      
+        
     },
     
 };
