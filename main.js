@@ -77,9 +77,9 @@ var mainState = {
        
         }
         if (this.movement.up.isDown) {
-            this.player_one.body.velocity.x = Math.cos(70);
-            this.player_one.body.velocity.y = Math.sin(70);
-            console.log(Math.cos(70));
+            this.player_one.body.velocity.x = Math.cos((0.0174533*70));
+            this.player_one.body.velocity.y = Math.sin((0.0174533*70));
+            console.log(Math.cos((0.0174533*70));
         }
         if (this.movement.down.isDown) {
     
