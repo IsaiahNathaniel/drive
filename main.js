@@ -83,6 +83,7 @@ var mainState = {
         if (this.movement.down.isDown) {
             this.player_one.body.velocity.y = this.player_one.speed;
         }
+    },
     
 };
 
