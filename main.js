@@ -25,7 +25,7 @@ var titleState = {
 var mainState = {
     
     preload: function() {
-        game.load.image('player', 'assets/invader.png');
+        game.load.image('player', 'assets/car.png');
         game.stage.backgroundColor = '#1b1b18';
     },
     
