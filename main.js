@@ -32,12 +32,7 @@ var mainState = {
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.renderer.renderSession.roundPixels = true;
-        
-        
-  
-        // score init
-        
-        
+     
         // player inits
         this.player_oneInit();
     
@@ -76,6 +71,8 @@ var mainState = {
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(0.0174533*this.player_one.angle));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(0.0174533*this.player_one.angle));
         console.log(this.player_one.angle);
+        console.log("vel.x" + this.player_one.body.velocity.x);
+        console.log("vel.y" + this.player_one.body.velocity.y);
         if (this.movement.left.isDown){
            this.player_one.angle -= 3;
         }
