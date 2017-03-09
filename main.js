@@ -79,6 +79,7 @@ var mainState = {
         if (this.movement.up.isDown) {
             this.player_one.body.velocity.x = (25 * Math.sin(0.0174533*this.player_one.angle));
             this.player_one.body.velocity.y = (25 * Math.sin(0.0174533*this.player_one.angle));
+            console.log(this.player_one.angle);
         }
         if (this.movement.down.isDown) {
     
