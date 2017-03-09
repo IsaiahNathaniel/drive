@@ -60,7 +60,6 @@ var mainState = {
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 0;
         this.player_one.speed = 45;
-        this.player_one.speedModifier = 45;
         this.player_one.brakingModifier = 1.3;
        
     },
