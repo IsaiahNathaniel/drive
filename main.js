@@ -63,6 +63,7 @@ var mainState = {
         this.player_one.anchor.setTo(0.5, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 70;
+        this.player_one.speedModifier = 45;
        
     },
     
@@ -77,8 +78,8 @@ var mainState = {
             this.player_one.angle += 3;
         }
         if (this.movement.up.isDown) {
-            this.player_one.body.velocity.x = (25 * Math.cos(0.0174533*this.player_one.angle));
-            this.player_one.body.velocity.y = (25 * Math.sin(0.0174533*this.player_one.angle));
+            this.player_one.body.velocity.x = (this.player_one.speedModifier * Math.cos(0.0174533*this.player_one.angle));
+            this.player_one.body.velocity.y = (this.player_one.speedModifier * Math.sin(0.0174533*this.player_one.angle));
             console.log(this.player_one.angle);
         }
         if (this.movement.down.isDown) {
