@@ -86,7 +86,7 @@ var mainState = {
             this.player_one.speed += 3;
             
         }
-        if (this.movement.down.isDown) {
+        if (this.movement.down.isDown && this.player_one.speed > 0) {
             this.player_one.speed -= 3;
     
         }
