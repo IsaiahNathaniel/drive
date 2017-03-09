@@ -4,7 +4,7 @@ var game = new Phaser.Game(1280, 800, Phaser.AUTO, 'gameDiv');
 var titleState = {
     
     preload: function() {
-        game.load.image('player', 'assets/invader.png');    
+        game.load.image('player', 'assets/car.png');    
         game.load.image('easyButton', 'assets/easyButton.png');
         game.load.image('spacebackground', 'assets/background.png');
     },
