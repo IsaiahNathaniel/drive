@@ -54,6 +54,7 @@ var mainState = {
         this.movement = game.input.keyboard.createCursorKeys();
         
         this.player_one = this.game.add.sprite(400, 550, 'player');
+        this.player_one.scale.setTo(2, 2);
         game.physics.arcade.enable(this.player_one)
         this.player_one.anchor.setTo(0.5, 0.9);
         this.player_one.body.collideWorldBounds = true;
