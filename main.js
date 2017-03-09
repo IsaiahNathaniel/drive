@@ -76,10 +76,10 @@ var mainState = {
         console.log("pos.x " + this.player_one.body.x);
         console.log("pos.y " + this.player_one.body.y);
         if (this.movement.left.isDown){
-           this.player_one.rotation -= 1;
+           this.player_one.rotation -= (3 * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
         }
         if (this.movement.right.isDown){
-            this.player_one.rotation += 1;
+            this.player_one.rotation += (3 * 0.0174533);
         }
         if (this.movement.up.isDown) {
             this.player_one.speed += 3;
