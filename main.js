@@ -63,6 +63,7 @@ var mainState = {
         this.player_one.anchor.setTo(0.5, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 70;
+        this.player_one.speed = 45;
         this.player_one.speedModifier = 45;
         this.player_one.brakingModifier = 1.3;
        
@@ -72,6 +73,9 @@ var mainState = {
     playerInputCheck: function() {
         // player_one inputs
        // this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_one.velocityMod),(this.player_one.body.velocity.y/this.player_one.velocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movemeny
+        this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(0.0174533*this.player_one.angle));
+        this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(0.0174533*this.player_one.angle));
+        console.log(this.player_one.angle);
         if (this.movement.left.isDown){
            this.player_one.angle -= 3;
         }
@@ -79,12 +83,11 @@ var mainState = {
             this.player_one.angle += 3;
         }
         if (this.movement.up.isDown) {
-            this.player_one.body.velocity.x = (this.player_one.speedModifier * Math.cos(0.0174533*this.player_one.angle));
-            this.player_one.body.velocity.y = (this.player_one.speedModifier * Math.sin(0.0174533*this.player_one.angle));
-            console.log(this.player_one.angle);
+            this.player_one.speed += 3;
+            
         }
         if (this.movement.down.isDown) {
-            this.player_one.body.velocity.setTo = ((this.player_one.body.velocity.x/this.player_one.brakingModifier),(this.player_one.body.velocity.y/this.player_one.brakingModifier));
+            this.player_one.speed -= 3;
     
         }
     },
