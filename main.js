@@ -71,8 +71,10 @@ var mainState = {
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(0.0174533*this.player_one.angle));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(0.0174533*this.player_one.angle));
         console.log(this.player_one.angle);
-        console.log("vel.x" + this.player_one.body.velocity.x);
-        console.log("vel.y" + this.player_one.body.velocity.y);
+        console.log("vel.x " + this.player_one.body.velocity.x);
+        console.log("vel.y " + this.player_one.body.velocity.y);
+        console.log("pos.x " + this.player_one.body.x);
+        console.log("pos.y " + this.player_one.body.y);
         if (this.movement.left.isDown){
            this.player_one.angle -= 3;
         }
