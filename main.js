@@ -26,6 +26,8 @@ var mainState = {
     
     preload: function() {
         game.load.image('player', 'assets/car.png');
+        game.load.image('redPlayer', 'assets/red_car.png');
+        game.load.image('grayPlayer', 'assets/gray_car.png');
         game.stage.backgroundColor = '#1b1b18';
     },
     
@@ -52,8 +54,10 @@ var mainState = {
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
+        this.changeColor.red = game.input.keyboard.addKey(Phaser.Keyboard.R);
+        this.changeColor.gray = game.input.keyboard.addKey(Phaser.Keyboard.G);
         
-        this.player_one = this.game.add.sprite(400, 550, 'player');
+        this.player_one = this.game.add.sprite(400, 550, 'assets/car.png);
         this.player_one.scale.setTo(0.06, 0.06);
         game.physics.arcade.enable(this.player_one)
         this.player_one.anchor.setTo(0.2, 0.5);
@@ -88,6 +92,8 @@ var mainState = {
         if (this.movement.down.isDown && this.player_one.speed > 0) {
             this.player_one.speed -= 3;
     
+        }
+        if (this.changeColor.red.isDown) {  
         }
     },
     
