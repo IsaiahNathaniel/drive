@@ -54,7 +54,7 @@ var mainState = {
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
-        this.player_one = this.game.add.sprite(400, 550, 'assets/car.png');
+        this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
         game.physics.arcade.enable(this.player_one)
         this.player_one.anchor.setTo(0.2, 0.5);
