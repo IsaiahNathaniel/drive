@@ -54,9 +54,6 @@ var mainState = {
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
-        this.changeColor.red = game.input.keyboard.addKey(Phaser.Keyboard.R);
-        this.changeColor.gray = game.input.keyboard.addKey(Phaser.Keyboard.G);
-        
         this.player_one = this.game.add.sprite(400, 550, 'assets/car.png);
         this.player_one.scale.setTo(0.06, 0.06);
         game.physics.arcade.enable(this.player_one)
@@ -80,10 +77,26 @@ var mainState = {
         console.log("pos.x " + this.player_one.body.x);
         console.log("pos.y " + this.player_one.body.y);
         if (this.movement.left.isDown){
-           this.player_one.rotation -= (1.8 * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
+            if (this.player_one.speed > 20) {
+                this.player_one.rotation -= (1.8 * 0.0174533);
+            }
+            else if (this.player_one.speed > 10) {
+                this.player_one.rotation -= (1.0 * 0.0174533);
+            }
+            else { this.player_one.rotation -= (0 * 0.0174533);
+            }
+           // this.player_one.rotation -= (1.8 * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
         }
         if (this.movement.right.isDown){
-            this.player_one.rotation += (1.8 * 0.0174533);
+            if (this.player_one.speed > 20) {
+                this.player_one.rotation += (1.8 * 0.0174533);
+            }
+            else if (this.player_one.speed > 10) {
+                this.player_one.rotation += (1.0 * 0.0174533);
+            }
+            else { this.player_one.rotation += (0 * 0.0174533);
+            }
+            
         }
         if (this.movement.up.isDown) {
             this.player_one.speed += 1;
@@ -93,8 +106,7 @@ var mainState = {
             this.player_one.speed -= 3;
     
         }
-        if (this.changeColor.red.isDown) {  
-        }
+     
     },
     
 };
