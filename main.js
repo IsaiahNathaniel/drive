@@ -54,6 +54,7 @@ var mainState = {
     player_oneInit: function() {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
+        this.secretSpeed = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD_2);
         this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
         game.physics.arcade.enable(this.player_one)
@@ -61,6 +62,7 @@ var mainState = {
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 0;
         this.player_one.speed = 45;
+        this.player_one.speedLimit = 250;
         this.player_one.brakingModifier = 1.3;
        
     },
@@ -68,40 +70,22 @@ var mainState = {
 
     playerInputCheck: function() {
         // player_one inputs
-        // this.player_one.body.velocity.setTo((this.player_one.body.velocity.x/this.player_one.velocityMod),(this.player_one.body.velocity.y/this.player_one.velocityMod));  // sets player velocity to a fraction of previous velocity to reduce stutter and create smoother movement
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(this.player_one.rotation));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(this.player_one.rotation));
         console.log(this.player_one.rotation);
         console.log("vel.x " + this.player_one.body.velocity.x);
         console.log("vel.y " + this.player_one.body.velocity.y);
         console.log("speed " + this.player_one.speed);
+        if (this.secretSpeed.isDown) {
+            this.player_one.speedLimit = 10000000;
+        }
         if (this.movement.left.isDown){
-            /*    non-adaptive turn speed setting
-            if (this.player_one.speed > 20) {
-                this.player_one.rotation -= (1.8 * 0.0174533);
-            }
-            else if (this.player_one.speed > 10) {
-                this.player_one.rotation -= (1.0 * 0.0174533);
-            }
-            else { this.player_one.rotation -= (0 * 0.0174533);
-            }
-            */
            this.player_one.rotation -= ((this.player_one.speed/100) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
         }
         if (this.movement.right.isDown){
-            /*
-            if (this.player_one.speed > 20) {
-                this.player_one.rotation += (1.8 * 0.0174533);
-            }
-            else if (this.player_one.speed > 10) {
-                this.player_one.rotation += (1.0 * 0.0174533);
-            }
-            else { this.player_one.rotation += (0 * 0.0174533);
-            }
-            */
             this.player_one.rotation += ((this.player_one.speed/100) * 0.0174533);
         }
-        if (this.movement.up.isDown && this.player_one.speed < 250 ) {
+        if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
             this.player_one.speed += 1;
         } else if (!this.movement.up.isDown && this.player_one.speed > 0) {
             this.player_one.speed -= 0.5; // if the player isnt accelerating
