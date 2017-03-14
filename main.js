@@ -103,7 +103,7 @@ var mainState = {
         }
         if (this.movement.up.isDown && this.player_one.speed < 250 ) {
             this.player_one.speed += 1;
-        } else if (!this.movement.up.isDown) {
+        } else if (!this.movement.up.isDown && this.player_one.speed > 0) {
             this.player_one.speed -= 0.5; // if the player isnt accelerating
         }
         
