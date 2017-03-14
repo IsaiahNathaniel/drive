@@ -74,9 +74,9 @@ var mainState = {
         console.log(this.player_one.rotation);
         console.log("vel.x " + this.player_one.body.velocity.x);
         console.log("vel.y " + this.player_one.body.velocity.y);
-        console.log("pos.x " + this.player_one.body.x);
-        console.log("pos.y " + this.player_one.body.y);
+        console.log("speed " + this.player_one.speed);
         if (this.movement.left.isDown){
+            /*    non-adaptive turn speed setting
             if (this.player_one.speed > 20) {
                 this.player_one.rotation -= (1.8 * 0.0174533);
             }
@@ -85,9 +85,11 @@ var mainState = {
             }
             else { this.player_one.rotation -= (0 * 0.0174533);
             }
-           // this.player_one.rotation -= (1.8 * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
+            */
+           this.player_one.rotation -= ((this.player_one.speed/10) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
         }
         if (this.movement.right.isDown){
+            /*
             if (this.player_one.speed > 20) {
                 this.player_one.rotation += (1.8 * 0.0174533);
             }
@@ -96,9 +98,10 @@ var mainState = {
             }
             else { this.player_one.rotation += (0 * 0.0174533);
             }
-            
+            */
+            this.player_one.rotation += ((this.player_one.speed/10) * 0.0174533);
         }
-        if (this.movement.up.isDown) {
+        if (this.movement.up.isDown && this.player_one.speed < 45 ) {
             this.player_one.speed += 1;
             
         }
