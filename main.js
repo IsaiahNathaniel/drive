@@ -86,7 +86,7 @@ var mainState = {
             else { this.player_one.rotation -= (0 * 0.0174533);
             }
             */
-           this.player_one.rotation -= ((this.player_one.speed/10) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
+           this.player_one.rotation -= ((this.player_one.speed/100) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
         }
         if (this.movement.right.isDown){
             /*
