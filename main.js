@@ -99,7 +99,7 @@ var mainState = {
             else { this.player_one.rotation += (0 * 0.0174533);
             }
             */
-            this.player_one.rotation += ((this.player_one.speed/10) * 0.0174533);
+            this.player_one.rotation += ((this.player_one.speed/100) * 0.0174533);
         }
         if (this.movement.up.isDown && this.player_one.speed < 250 ) {
             this.player_one.speed += 1;
