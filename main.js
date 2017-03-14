@@ -76,6 +76,7 @@ var mainState = {
         console.log("vel.x " + this.player_one.body.velocity.x);
         console.log("vel.y " + this.player_one.body.velocity.y);
         console.log("speed " + this.player_one.speed);
+        console.log(returnNumber();)
         if (this.secretSpeed.isDown) {
             this.player_one.speedLimit = 10000000;
         }
