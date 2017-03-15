@@ -77,7 +77,7 @@ var mainState = {
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(this.player_one.rotation));
         console.log(this.player_one.rotation);
         console.log("rightturn " + this.player_one.rightTurnMod);
-        console.log("leftturn " + this.player_one.body.leftTurnMod);
+        console.log("leftturn " + this.player_one.leftTurnMod);
         console.log("speed " + this.player_one.speed);
         if (this.secretSpeed.isDown) {
             this.player_one.speedLimit = 10000000;
