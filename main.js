@@ -64,8 +64,8 @@ var mainState = {
         this.player_one.speed = 45;
         this.player_one.speedLimit = 250;
         this.player_one.brakingModifier = 1.3;
-        this.player_one.degree.left = 0;
-        this.player_one.degree.right = 0;
+        this.player_one.leftTurnMod = 0;
+        this.player_one.rightTurnMod = 0;
        
     },
     
@@ -82,18 +82,18 @@ var mainState = {
             this.player_one.speedLimit = 10000000;
         }
         if (this.movement.left.isDown){
-           this.player_one.rotation -= ((this.player_one.degree.left) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
-           if (this.player_one.degree.left < 3.0) {
-               this.player_one.degree.left += 0.1;
+           this.player_one.rotation -= ((this.player_one.leftTurnMod) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
+           if (this.player_one.leftTurnMod < 3.0) {
+               this.player_one.leftTurnMod += 0.1;
            }
-           else { this.player_one.degree.left -= 0.1 }
+           else { this.player_one.leftTurnMod -= 0.1 }
         }
         if (this.movement.right.isDown){
-            this.player_one.rotation += ((this.player_one.speed/100) * 0.0174533);
-            if (this.player_one.degree.right < 3.0) {
-               this.player_one.degree.right += 0.1;
+            this.player_one.rotation += ((this.player_one.rightTurnMod/100) * 0.0174533);
+            if (this.player_one.rightTurnMod < 3.0) {
+               this.player_one.rightTurnMod += 0.1;
            }
-           else { this.player_one.degree.right -= 0.1 }
+           else { this.player_one.rightTurnMod -= 0.1 }
         }
         if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
             this.player_one.speed += 1;
