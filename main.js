@@ -69,14 +69,15 @@ var mainState = {
        
     },
     
-
+// Suck dem dicks boioi(anal)
+    
     playerInputCheck: function() {
         // player_one inputs
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(this.player_one.rotation));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(this.player_one.rotation));
         console.log(this.player_one.rotation);
-        console.log("vel.x " + this.player_one.body.velocity.x);
-        console.log("vel.y " + this.player_one.body.velocity.y);
+        console.log("rightturn " + this.player_one.rightTurnMod);
+        console.log("leftturn " + this.player_one.body.leftTurnMod);
         console.log("speed " + this.player_one.speed);
         if (this.secretSpeed.isDown) {
             this.player_one.speedLimit = 10000000;
