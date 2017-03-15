@@ -87,6 +87,8 @@ var mainState = {
            if (this.player_one.leftTurnMod < 3.0) {
                this.player_one.leftTurnMod += 0.1;
            }
+        }
+        else (this.player_one.leftTurnMod > 0) {
            this.player_one.leftTurnMod -= 0.1;
         }
         if (this.movement.right.isDown){
@@ -94,7 +96,9 @@ var mainState = {
             if (this.player_one.rightTurnMod < 3.0) {
                this.player_one.rightTurnMod += 0.1;
             }
-            this.player_one.rightTurnMod -= 0.1;
+        }
+        else (this.player_one.rightTurnMod > 0) {
+           this.player_one.rightTurnMod -= 0.1;
         }
         if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
             this.player_one.speed += 1;
