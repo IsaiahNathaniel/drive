@@ -79,6 +79,7 @@ var mainState = {
         console.log("rightturn " + this.player_one.rightTurnMod);
         console.log("leftturn " + this.player_one.leftTurnMod);
         console.log("speed " + this.player_one.speed);
+        console.log("xyz " + ((10 * (this.player_one.rightTurnMod * (1/this.player_one.speed))) * 0.0174533));
         if (this.secretSpeed.isDown) {
             this.player_one.speedLimit = 10000000;
         }
@@ -94,7 +95,10 @@ var mainState = {
            this.player_one.leftTurnMod -= 0.1;
         }
         if (this.movement.right.isDown){
-            this.player_one.rotation += ((10 * (this.player_one.rightTurnMod * (1/this.player_one.speed))) * 0.0174533);
+            if (this.player_one.rightTurnMod > 0 && this.player_one.speed > 0) {
+                
+            }
+            
             if (this.player_one.rightTurnMod < 3.0) {
                this.player_one.rightTurnMod += 0.06;
             }
