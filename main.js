@@ -90,7 +90,7 @@ var mainState = {
            else { this.player_one.leftTurnMod -= 0.1 }
         }
         if (this.movement.right.isDown){
-            this.player_one.rotation += ((this.player_one.rightTurnMod/100) * 0.0174533);
+            this.player_one.rotation += ((this.player_one.rightTurnMod) * 0.0174533);
             if (this.player_one.rightTurnMod < 3.0) {
                this.player_one.rightTurnMod += 0.1;
            }
