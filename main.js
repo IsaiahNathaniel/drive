@@ -83,7 +83,7 @@ var mainState = {
             this.player_one.speedLimit = 10000000;
         }
         if (this.movement.left.isDown){
-           this.player_one.rotation -= ((this.player_one.leftTurnMod) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
+           this.player_one.rotation -= ((10 * (this.player_one.leftTurnMod * (1/this.player_one.speed))) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
            if (this.player_one.leftTurnMod < 3.0) {
                this.player_one.leftTurnMod += 0.06;
            }
@@ -92,7 +92,7 @@ var mainState = {
            this.player_one.leftTurnMod -= 0.1;
         }
         if (this.movement.right.isDown){
-            this.player_one.rotation += ((this.player_one.rightTurnMod) * 0.0174533);
+            this.player_one.rotation += ((10 * (this.player_one.rightTurnMod * (1/this.player_one.speed))) * 0.0174533);
             if (this.player_one.rightTurnMod < 3.0) {
                this.player_one.rightTurnMod += 0.06;
             }
