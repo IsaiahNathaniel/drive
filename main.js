@@ -68,6 +68,8 @@ var mainState = {
         this.player_one.brakingModifier = 1.3;
         this.player_one.leftTurnMod = 0;
         this.player_one.rightTurnMod = 0;
+        this.player_one.turnRate = 0.08;
+        this.player_one.maxTurnRate = 2.0;
        
     },
     
@@ -90,8 +92,10 @@ var mainState = {
         
         if (this.movement.down.isDown && this.player_one.speed > 0) {
             this.player_one.speed -= 3;
-    
+        } else if (!this.move.down.isDown & this.player_one.speed < 0) {
+            this.player_one.speed += 0.5;  
         }
+        
      
     },
     
@@ -101,12 +105,12 @@ var mainState = {
            if (this.player_one.leftTurnMod > 0 && this.player_one.speed > 0) {
                this.player_one.rotation -= (this.player_one.leftTurnMod * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
            }
-           if (this.player_one.leftTurnMod < 2.0) {
-               this.player_one.leftTurnMod += 0.08;
+           if (this.player_one.leftTurnMod < this.player_one.maxTurnRate) {
+               this.player_one.leftTurnMod += this.player_one.turnRate;
            }
         }
         else if (this.player_one.leftTurnMod > 0) {
-           this.player_one.leftTurnMod -= 0.08;
+           this.player_one.leftTurnMod -= this.player_one.turnRate;
            this.player_one.rotation -= (this.player_one.leftTurnMod * 0.0174533);
         }
         //right turning
@@ -114,12 +118,12 @@ var mainState = {
             if (this.player_one.rightTurnMod > 0 && this.player_one.speed > 0) {
                 this.player_one.rotation += (this.player_one.rightTurnMod * 0.0174533);
             }    
-            if (this.player_one.rightTurnMod < 2.0) {
-               this.player_one.rightTurnMod += 0.08;
+            if (this.player_one.rightTurnMod < this.player_one.maxTurnRate) {
+               this.player_one.rightTurnMod += this.player_one.turnRate;
             }
         }
         else if (this.player_one.rightTurnMod > 0) {
-            this.player_one.rightTurnMod -= 0.08;
+            this.player_one.rightTurnMod -= this.player_one.turnRate;
             this.player_one.rotation += (this.player_one.rightTurnMod * 0.0174533);
         }
       
