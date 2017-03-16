@@ -101,7 +101,7 @@ var mainState = {
            if (this.player_one.leftTurnMod > 0 && this.player_one.speed > 0) {
                this.player_one.rotation -= (this.player_one.leftTurnMod * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
            }
-           if (this.player_one.leftTurnMod < 2.4) {
+           if (this.player_one.leftTurnMod < 2.0) {
                this.player_one.leftTurnMod += 0.08;
            }
         }
@@ -114,7 +114,7 @@ var mainState = {
             if (this.player_one.rightTurnMod > 0 && this.player_one.speed > 0) {
                 this.player_one.rotation += (this.player_one.rightTurnMod * 0.0174533);
             }    
-            if (this.player_one.rightTurnMod < 2.4) {
+            if (this.player_one.rightTurnMod < 2.0) {
                this.player_one.rightTurnMod += 0.08;
             }
         }
