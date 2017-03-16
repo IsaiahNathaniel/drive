@@ -75,37 +75,11 @@ var mainState = {
         // player_one inputs
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(this.player_one.rotation));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(this.player_one.rotation));
-        console.log(this.player_one.rotation);
-        console.log("rightturn " + this.player_one.rightTurnMod);
-        console.log("leftturn " + this.player_one.leftTurnMod);
-        console.log("speed " + this.player_one.speed);
-        console.log("xyz " + ((10 * (this.player_one.rightTurnMod * (1/this.player_one.speed))) * 0.0174533));
+        this.checkPlayerTurn();
         if (this.secretSpeed.isDown) {
             this.player_one.speedLimit = 10000000;
         }
-        if (this.movement.left.isDown){
-           if (this.player_one.leftTurnMod > 0 && this.player_one.speed > 0) {
-               this.player_one.rotation -= ((10 * Math.sqrt(this.player_one.leftTurnMod * (1/this.player_one.speed))) * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
-           }
-           if (this.player_one.leftTurnMod < 3.0) {
-               this.player_one.leftTurnMod += 0.06;
-           }
-        }
-        else if (this.player_one.leftTurnMod > 0) {
-           this.player_one.leftTurnMod -= 0.1;
-        }
-        if (this.movement.right.isDown){
-            if (this.player_one.rightTurnMod > 0 && this.player_one.speed > 0) {
-                
-            }
-            
-            if (this.player_one.rightTurnMod < 3.0) {
-               this.player_one.rightTurnMod += 0.06;
-            }
-        }
-        else if (this.player_one.rightTurnMod > 0) {
-           this.player_one.rightTurnMod -= 0.1;
-        }
+        
         if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
             this.player_one.speed += 1;
         } else if (!this.movement.up.isDown && this.player_one.speed > 0) {
@@ -119,7 +93,31 @@ var mainState = {
      
     },
     
-    turn: function(directionInput) {
+    checkPlayerTurn: function() {
+        // left turning
+        if (this.movement.left.isDown){
+           if (this.player_one.leftTurnMod > 0 && this.player_one.speed > 0) {
+               this.player_one.rotation -= (this.player_one.leftTurnMod * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
+           }
+           if (this.player_one.leftTurnMod < 3.0) {
+               this.player_one.leftTurn += 0.06;
+           }
+        }
+        else if (this.player_one.leftTurnMod > 0) {
+           this.player_one.leftTurnMod -= 0.1;
+        }
+        //right turning
+        if (this.movement.right.isDown){
+            if (this.player_one.rightTurnMod > 0 && this.player_one.speed > 0) {
+                this.player_one.rotation -= (this.player_one.rightTurnMod * 0.0174533);
+            }    
+        if (this.player_one.rightTurnMod < 3.0) {
+               this.player_one.rightTurnMod += 0.06;
+            }
+        }
+        else if (this.player_one.rightTurnMod > 0) {
+           this.player_one.rightTurnMod -= 0.1;
+        }
       
     },
     
