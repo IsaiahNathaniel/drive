@@ -68,8 +68,8 @@ var mainState = {
         this.player_one.brakingModifier = 1.3;
         this.player_one.leftTurnMod = 0;
         this.player_one.rightTurnMod = 0;
-        this.player_one.turnRate = 0.08;
-        this.player_one.maxTurnRate = 2.0;
+        this.player_one.turnRate = 0.12;
+        this.player_one.maxTurnRate = 1.8;
        
     },
     
