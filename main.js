@@ -85,6 +85,10 @@ var mainState = {
             this.player_one.speedLimit = 10000000;
         }
         if (this.brakeVehicle.isDown) {
+            if (this.player_one.speed > 0) {
+                this.player_one.speed -= 5;
+            }
+            else { this.player_one.speed += 5 }
         }
         
         if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
