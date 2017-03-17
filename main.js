@@ -71,6 +71,7 @@ var mainState = {
         this.player_one.rightTurnMod = 0;
         this.player_one.turnRate = 0.06;
         this.player_one.maxTurnRate = 1.8;
+        this.player_one.brakeAbility = 3.8;
        
     },
     
@@ -86,9 +87,9 @@ var mainState = {
         }
         if (this.brakeVehicle.isDown) {
             if (this.player_one.speed > 0) {
-                this.player_one.speed -= 5;
+                this.player_one.speed -= this.player_one.brakeAbility;
             }
-            else { this.player_one.speed += 5 }
+            else { this.player_one.speed += this.player_one.brakeAbility; }
         }
         
         if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
