@@ -57,6 +57,7 @@ var mainState = {
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
         this.secretSpeed = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD_2);
+        this.brakeVehicle = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
         game.physics.arcade.enable(this.player_one)
@@ -82,6 +83,8 @@ var mainState = {
         this.checkPlayerTurn();
         if (this.secretSpeed.isDown) {
             this.player_one.speedLimit = 10000000;
+        }
+        if (this.brakeVehicle.isDown) {
         }
         
         if (this.movement.up.isDown && this.player_one.speed < this.player_one.speedLimit) {
