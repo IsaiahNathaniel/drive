@@ -34,9 +34,9 @@ var mainState = {
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.renderer.renderSession.roundPixels = true;
-     
         // player inits
         this.player_oneInit();
+        this.walls_Init();
     
     },
     
@@ -44,12 +44,24 @@ var mainState = {
         this.playerInputCheck();
         console.log("right " + this.player_one.rightTurnMod);
         console.log("left " + this.player_one.leftTurnMod);
-        
+        this.physics.arcade.c
     },
     
     restartGame: function() {
         // Restarts game
         game.state.start('main')
+    },
+    
+    walls_Init : function() {
+        this.walls = game.add.group();
+        this.walls = enableBody = true;
+        this.walls.createMultiple(30, 'wall');
+        
+    },
+    
+    createWall : function(x, y) {
+        var wall = this.wall.getFirstDead();
+        wall.reset(x, y)
     },
    
     
