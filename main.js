@@ -42,8 +42,6 @@ var mainState = {
     
     update: function() {
         this.playerInputCheck();
-        console.log("right " + this.player_one.rightTurnMod);
-        console.log("left " + this.player_one.leftTurnMod);
         this.physics.arcade.c
     },
     
