@@ -52,15 +52,16 @@ var mainState = {
         game.state.start('main')
     },
     
-    walls_Init : function() {
+    walls_Init : function(xPos, yPos);
         this.walls = game.add.group();
         this.walls = enableBody = true;
         this.walls.createMultiple(30, 'wall');
+        // this.walls.create(xPos, yPos);
         
     },
     
     createWall : function(x, y) {
-        var wall = this.wall.getFirstDead();
+        var wall = this.walls.getFirstDead();
         wall.reset(x, y)
     },
    
