@@ -54,7 +54,8 @@ var mainState = {
         walls = game.add.group();
         walls.enableBody = true;
         walls.setAll("anchor.x", 0.5);
-        // walls.scale.setAll(1, 1);
+        walls.setAll("anchor.y", 0.5);
+        walls.setAll("scale", 0.5);
         walls.create(xPos, yPos, 'wall');
         
     },
