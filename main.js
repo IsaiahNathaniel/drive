@@ -38,6 +38,7 @@ var mainState = {
         // player inits
         this.player_oneInit();
         this.walls_Init(20, 20);
+        this.createWall(100, 100);
     
     },
     
@@ -63,7 +64,7 @@ var mainState = {
     
     
     createWall : function(xPos, yPos) {
-        
+        newWall = this.walls.create(xPos, yPos, 'wall');
         
     },
     
