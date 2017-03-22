@@ -2,24 +2,7 @@ var game = new Phaser.Game(1440, 900, Phaser.AUTO, 'gameDiv');
 
 // title state will be worked on later
 var titleState = {
-    
-    preload: function() {
-        game.load.image('player', 'assets/car.png');    
-        game.load.image('easyButton', 'assets/easyButton.png');
-        game.load.image('spacebackground', 'assets/background.png');
-    },
-    
-    create: function() {
-        this.spaceSprite = game.add.tileSprite(0,0, 800, 600, 'spacebackground')
-        this.startGameButton = game.add.button(300, 220, 'easyButton', this.startGame, this);
-       
-      
-    },
-    
-    update: function() {
-   
-    },
-
+ 
 };
 
 var mainState = {
