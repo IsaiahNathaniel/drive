@@ -28,6 +28,7 @@ var mainState = {
         game.load.image('player', 'assets/car.png');
         game.load.image('redPlayer', 'assets/red_car.png');
         game.load.image('grayPlayer', 'assets/gray_car.png');
+        game.load.image('wall', 'assets/wall.jpg');
         game.stage.backgroundColor = '#1b1b18';
     },
     
@@ -52,7 +53,7 @@ var mainState = {
     walls_Init : function(xPos, yPos) {
         walls = game.add.group();
         walls.enableBody = true;
-        walls.create(xPos, yPos, 'redPlayer');
+        walls.create(xPos, yPos, 'wall');
         
     },
     
