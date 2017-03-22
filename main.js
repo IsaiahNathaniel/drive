@@ -36,7 +36,7 @@ var mainState = {
         this.game.renderer.renderSession.roundPixels = true;
         // player inits
         this.player_oneInit();
-        this.walls_Init();
+        this.walls_Init(20, 20);
     
     },
     
@@ -52,7 +52,13 @@ var mainState = {
     walls_Init : function(xPos, yPos) {
         walls = game.add.group();
         walls.enableBody = true;
-        walls.create(xPos, yPos);
+        walls.create(xPos, yPos, 'redPlayer');
+        
+    },
+    
+    
+    createWall : function(xPos, yPos) {
+        
         
     },
     
