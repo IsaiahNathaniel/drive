@@ -49,7 +49,7 @@ var mainState = {
         game.state.start('main')
     },
     
-    walls_Init : function(xPos, yPos);
+    walls_Init : function(xPos, yPos) {
         this.walls = game.add.group();
         this.walls = enableBody = true;
         this.walls.create(xPos, yPos);
