@@ -57,6 +57,7 @@ var mainState = {
         walls.setAll("anchor.y", 0.5);
         walls.setAll("scale.x", 0.5);
         walls.setAll("scale.y", 0.5);
+        walls.setAll("angle", 0.5);
         walls.create(xPos, yPos, 'wall');
         
     },
