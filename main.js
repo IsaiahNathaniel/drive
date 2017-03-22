@@ -2,7 +2,6 @@ var game = new Phaser.Game(1440, 900, Phaser.AUTO, 'gameDiv');
 
 // title state will be worked on later
 var titleState = {
- 
 };
 
 var mainState = {
@@ -115,7 +114,8 @@ var mainState = {
 	
 	checkPlayerMouse: function() {
 		while (game.input.mouse.onMouseDown) {
-			translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.x, 'wall');
+			// translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.x, 'wall');
+			translucentWall = walls.create(150, 150, 'wall');
 			translucentWall.enableBody = true;
         	translucentWall.anchor.setTo(0.5, 0.5);
         	translucentWall.scale.setTo(0.1, 0.1);
