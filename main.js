@@ -128,21 +128,8 @@ var mainState = {
         	this.translucentWall.anchor.setTo(0.5, 0.5);
         	this.translucentWall.scale.setTo(0.1, 0.1);
 			this.translucentWall.alpha = 0.5;
-			/*
-			// translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.y, 'wall');
-			translucentWall = walls.create(150, 150, 'wall');
-			translucentWall.enableBody = true;
-        		translucentWall.anchor.setTo(0.5, 0.5);
-        		translucentWall.scale.setTo(0.1, 0.1);
-			translucentWall.alpha = 0.5;
-			translucentWall.destroy();
-			*/ //crazy dumb way but im holding onto it for reference of its stupidity
 			
-			
-			
-			
-			
-		}
+		} else { this.translucentWall.destroy(); }
 		
 		
 	},
