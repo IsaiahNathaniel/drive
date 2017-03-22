@@ -55,7 +55,8 @@ var mainState = {
         walls.enableBody = true;
         walls.setAll("anchor.x", 0.5);
         walls.setAll("anchor.y", 0.5);
-        walls.setAll("scale", 0.5);
+        walls.setAll("scale.x", 0.5);
+        walls.setAll("scale.y", 0.5);
         walls.create(xPos, yPos, 'wall');
         
     },
