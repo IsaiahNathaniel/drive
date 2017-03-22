@@ -124,12 +124,13 @@ var mainState = {
 	checkPlayerMouse: function() {
 		if (game.input.mouse.onMouseDown) {
 			this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
+			this.translucentWall.exists = 1;
 			game.physics.arcade.enable(this.translucentWall);
         	this.translucentWall.anchor.setTo(0.5, 0.5);
         	this.translucentWall.scale.setTo(0.1, 0.1);
 			this.translucentWall.alpha = 0.5;
 			
-		} else { this.translucentWall.destroy(); }
+		} else { this.translucentWall.destroy(); this.translucentWall.exists = 0}
 		
 		
 	},
