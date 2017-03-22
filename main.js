@@ -28,6 +28,12 @@ var mainState = {
     update: function() {
 		this.playerInputCheck();
 		
+		
+		if (this.translucentWall.exists) {
+			this.translucentWall.x = game.input.mousePointer.x;
+			this.translucentWall.y = game.input.mousePointer.y;
+		}
+		
     },
     
     restartGame: function() {
@@ -116,14 +122,23 @@ var mainState = {
     },
 	
 	checkPlayerMouse: function() {
-		while (game.input.mouse.onMouseDown) {
-			translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.y, 'wall');
-			//translucentWall = walls.create(150, 150, 'wall');
+		if (game.input.mouse.onMouseDown) {
+			this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
+			game.physics.arcade.enable(this.translucentWall);
+        	this.translucentWall.anchor.setTo(0.5, 0.5);
+        	this.translucentWall.scale.setTo(0.1, 0.1);
+			this.translucentWall.alpha. = 0.5;
+			/*
+			// translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.y, 'wall');
+			translucentWall = walls.create(150, 150, 'wall');
 			translucentWall.enableBody = true;
-        	translucentWall.anchor.setTo(0.5, 0.5);
-        	translucentWall.scale.setTo(0.1, 0.1);
+        		translucentWall.anchor.setTo(0.5, 0.5);
+        		translucentWall.scale.setTo(0.1, 0.1);
 			translucentWall.alpha = 0.5;
 			translucentWall.destroy();
+			*/ //crazy dumb way but im holding onto it for reference of its stupidity
+			
+			
 			
 			
 			
