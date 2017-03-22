@@ -53,13 +53,14 @@ var mainState = {
     walls_Init : function(xPos, yPos) {
         walls = game.add.group();
         walls.enableBody = true;
+        walls.create(xPos, yPos, 'wall');
         walls.setAll("anchor.x", 0.5);
         walls.setAll("anchor.y", 0.5);
         walls.setAll("scale.x", 0.5);
         walls.setAll("scale.y", 0.5);
         walls.setAll("angle", 0.5);
         walls.setAll("width", 3);
-        walls.create(xPos, yPos, 'wall');
+        
         
     },
     
