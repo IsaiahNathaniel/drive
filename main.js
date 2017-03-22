@@ -116,11 +116,11 @@ var mainState = {
 	checkPlayerMouse: function() {
 		while (game.input.mouse.onMouseDown) {
 			translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.x, 'wall');
-			newWall.enableBody = true;
-        	newWall.anchor.setTo(0.5, 0.5);
-        	newWall.scale.setTo(0.1, 0.1);
-			newWall.alpha = 0.5;
-			newWall.destroy();
+			translucentWall.enableBody = true;
+        	translucentWall.anchor.setTo(0.5, 0.5);
+        	translucentWall.scale.setTo(0.1, 0.1);
+			translucentWall.alpha = 0.5;
+			translucentWall.destroy();
 			
 			
 			
