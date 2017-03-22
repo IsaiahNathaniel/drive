@@ -65,10 +65,8 @@ var mainState = {
     
     createWall : function(xPos, yPos) {
         newWall = walls.create(xPos, yPos, 'wall');
-        walls.setAll("anchor.x", 0.5);
-        walls.setAll("anchor.y", 0.5);
-        walls.setAll("scale.x", 0.5);
-        walls.setAll("scale.y", 0.5);
+        newWall.anchor(0.5,0.5);
+        newWall.scale(0.5,0.5);
         
     },
     
