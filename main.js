@@ -84,7 +84,7 @@ var mainState = {
     
     playerInputCheck: function() {
 		// player mouse check for making walls
-		this.checkPlayerMouse();
+		
         // player_one inputs
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(this.player_one.rotation));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(this.player_one.rotation));
