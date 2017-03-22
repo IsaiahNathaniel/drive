@@ -27,7 +27,7 @@ var mainState = {
     
     update: function() {
 		this.playerInputCheck();
-		
+		this.checkPlayerMouse();
 		
 		if (this.translucentWall.exists) {
 			this.translucentWall.x = game.input.mousePointer.x;
