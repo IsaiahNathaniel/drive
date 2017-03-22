@@ -64,7 +64,7 @@ var mainState = {
     
     
     createWall : function(xPos, yPos) {
-        newWall = this.walls.create(xPos, yPos, 'wall');
+        newWall = walls.create(xPos, yPos, 'wall');
         
     },
     
