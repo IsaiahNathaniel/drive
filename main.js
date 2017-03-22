@@ -127,7 +127,7 @@ var mainState = {
 			game.physics.arcade.enable(this.translucentWall);
         	this.translucentWall.anchor.setTo(0.5, 0.5);
         	this.translucentWall.scale.setTo(0.1, 0.1);
-			this.translucentWall.alpha. = 0.5;
+			this.translucentWall.alpha = 0.5;
 			/*
 			// translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.y, 'wall');
 			translucentWall = walls.create(150, 150, 'wall');
