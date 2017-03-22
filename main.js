@@ -20,8 +20,9 @@ var mainState = {
         this.game.renderer.renderSession.roundPixels = true;
         // player inits
         this.player_oneInit();
-        this.walls_Init(20, 20);
+        this.walls_Init();
         this.createWall(100, 100);
+	this.createWall(150, 150);
     
     },
     
@@ -34,13 +35,13 @@ var mainState = {
         game.state.start('main')
     },
     
-    walls_Init : function(xPos, yPos) {
+    walls_Init : function() {
         walls = game.add.group();
         walls.enableBody = true;
         walls.setAll("anchor.x", 0.5);
         walls.setAll("anchor.y", 0.5);
-        walls.setAll("scale.x", 0.5);
-        walls.setAll("scale.y", 0.5);
+        walls.setAll("scale.x", 0.05);
+        walls.setAll("scale.y", 0.05);
         
     },
     
