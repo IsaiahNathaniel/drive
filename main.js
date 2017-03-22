@@ -22,17 +22,18 @@ var mainState = {
         this.player_oneInit();
         this.walls_Init();
         this.createWall(100, 100);
-	this.createWall(150, 150);
+	    this.createWall(150, 150);
     
     },
     
     update: function() {
-        this.playerInputCheck();
+		this.playerInputCheck();
     },
     
     restartGame: function() {
+		game.input.mouse.stop();
         // Restarts game
-        game.state.start('main')
+        game.state.start('main');
     },
     
     walls_Init : function() {
@@ -48,7 +49,7 @@ var mainState = {
     
     createWall : function(xPos, yPos) {
         newWall = walls.create(xPos, yPos, 'wall');
-	newWall.enableBody = true;
+		newWall.enableBody = true;
         newWall.anchor.setTo(0.5, 0.5);
         newWall.scale.setTo(0.1, 0.1);
         
@@ -57,6 +58,8 @@ var mainState = {
    
     
     player_oneInit: function() {
+		// mouse events for creating obstacles
+		game.input.mouse.start();
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
         this.secretSpeed = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD_2);
@@ -109,6 +112,21 @@ var mainState = {
         
      
     },
+	
+	checkPlayerMouse: function() {
+		while (game.input.mouse.onMouseDown) {
+			translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.x, 'wall');
+			newWall.enableBody = true;
+        	newWall.anchor.setTo(0.5, 0.5);
+        	newWall.scale.setTo(0.1, 0.1);
+			newWall.alpha = 0.3;
+			
+			
+			
+		}
+		
+		
+	},
     
     checkPlayerTurn: function() {
         // left turning
