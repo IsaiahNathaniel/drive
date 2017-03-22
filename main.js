@@ -83,6 +83,8 @@ var mainState = {
 // Suck dem dicks boioi(anal)
     
     playerInputCheck: function() {
+		// player mouse check for making walls
+		this.checkPlayerMouse();
         // player_one inputs
         this.player_one.body.velocity.x = (this.player_one.speed * Math.cos(this.player_one.rotation));
         this.player_one.body.velocity.y = (this.player_one.speed * Math.sin(this.player_one.rotation));
@@ -114,8 +116,8 @@ var mainState = {
 	
 	checkPlayerMouse: function() {
 		while (game.input.mouse.onMouseDown) {
-			// translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.x, 'wall');
-			translucentWall = walls.create(150, 150, 'wall');
+			translucentWall = walls.create(game.input.mousePointer.x, game.input.mousePointer.x, 'wall');
+			//translucentWall = walls.create(150, 150, 'wall');
 			translucentWall.enableBody = true;
         	translucentWall.anchor.setTo(0.5, 0.5);
         	translucentWall.scale.setTo(0.1, 0.1);
