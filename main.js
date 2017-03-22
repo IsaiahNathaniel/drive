@@ -119,7 +119,8 @@ var mainState = {
 			newWall.enableBody = true;
         	newWall.anchor.setTo(0.5, 0.5);
         	newWall.scale.setTo(0.1, 0.1);
-			newWall.alpha = 0.3;
+			newWall.alpha = 0.5;
+			newWall.destroy();
 			
 			
 			
