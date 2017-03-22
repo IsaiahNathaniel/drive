@@ -27,6 +27,7 @@ var mainState = {
     
     update: function() {
 		this.playerInputCheck();
+		this.checkPlayerMouse();
     },
     
     restartGame: function() {
