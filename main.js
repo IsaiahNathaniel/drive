@@ -50,7 +50,7 @@ var mainState = {
         newWall = walls.create(xPos, yPos, 'wall');
 	newWall.enableBody = true;
         newWall.anchor.setTo(0.5, 0.5);
-        newWall.scale.setTo(0.05, 0.05);
+        newWall.scale.setTo(0.1, 0.1);
         
     },
     
