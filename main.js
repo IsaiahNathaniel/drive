@@ -64,7 +64,7 @@ var mainState = {
     
     createWall : function(xPos, yPos) {
         newWall = walls.create(xPos, yPos, 'wall');
-		game.physics.arcade.enable(this.newWall);
+		newWall.enableBody = true;
         newWall.anchor.setTo(0.5, 0.5);
         newWall.scale.setTo(0.1, 0.1);
         
