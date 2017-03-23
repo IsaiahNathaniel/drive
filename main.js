@@ -19,6 +19,7 @@ var mainState = {
         this.game.renderer.renderSession.roundPixels = true;
         // player inits
         this.player_oneInit();
+		this.createWallKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
         this.walls_Init();
         this.createWall(100, 100);
 	    this.createWall(150, 150);
@@ -120,7 +121,7 @@ var mainState = {
     },
 	
 	checkPlayerMouse: function() {
-		if (game.input.mouse.onMouseUp) {
+		if (this.createWallKey.isDown) {
 			this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
 			this.translucentWall.exists = 1;
 			game.physics.arcade.enable(this.translucentWall);
@@ -128,9 +129,10 @@ var mainState = {
         	this.translucentWall.scale.setTo(0.1, 0.1);
 			this.translucentWall.alpha = 0.5;
 			
-		} else { this.translucentWall.destroy(); this.translucentWall.exists = 0}
-		
-		
+		} else if (this.translucentWall.exists = 1) {
+				this.translucentWall.destroy();
+				this.translucentWall.exists = 0
+			}
 	},
     
     checkPlayerTurn: function() {
