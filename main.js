@@ -26,30 +26,12 @@ var mainState = {
 	    this.createWall(150, 150);
     
 		// create wall
-		this.placeWall = false;
-		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
-		game.physics.arcade.enable(this.translucentWall);
-        this.translucentWall.anchor.setTo(0.5, 0.5);
-        this.translucentWall.scale.setTo(0.1, 0.1);
-		this.translucentWall.alpha = 0.0;
+		
     },
     
     update: function() {
 		this.playerInputCheck();
-		if (this.createWallKey.isDown) {
-			this.translucentWall.alpha = 0.5;
-			this.translucentWall.x = game.input.mousePointer.x;
-			this.translucentWall.y = game.input.mousePointer.y;	
-			this.placeWall = true;
-		}
-		else {
-			this.translucentWall.alpha = 0.0;
-			if (this.placeWall) {
-				this.createWall(game.input.mousePointer.x, game.input.mousePointer.y);
-				this.placeWall = false;
-			}
-			
-		}
+		
     },
     
     restartGame: function() {
@@ -58,12 +40,21 @@ var mainState = {
     },
     
     walls_Init : function() {
+		// walls group
         walls = game.add.group();
         walls.enableBody = true;
         walls.setAll("anchor.x", 0.5);
         walls.setAll("anchor.y", 0.5);
         walls.setAll("scale.x", 0.05);
         walls.setAll("scale.y", 0.05);
+		
+		// transparent wall sprite init
+		this.placeWall = false;
+		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
+		game.physics.arcade.enable(this.translucentWall);
+        this.translucentWall.anchor.setTo(0.5, 0.5);
+        this.translucentWall.scale.setTo(0.1, 0.1);
+		this.translucentWall.alpha = 0.0;
         
     },
     
@@ -135,7 +126,21 @@ var mainState = {
      
     },
 	
-	checkPlayerMouse: function() {
+	checkWallPlace: function() {
+		if (this.createWallKey.isDown) {
+			this.translucentWall.alpha = 0.5;
+			this.translucentWall.x = game.input.mousePointer.x;
+			this.translucentWall.y = game.input.mousePointer.y;	
+			this.placeWall = true;
+		}
+		else {
+			this.translucentWall.alpha = 0.0;
+			if (this.placeWall) {
+				this.createWall(game.input.mousePointer.x, game.input.mousePointer.y);
+				this.placeWall = false;
+			}
+			
+		}
 		
 	},
     
