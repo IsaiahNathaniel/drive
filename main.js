@@ -31,6 +31,7 @@ var mainState = {
     
     update: function() {
 		this.playerInputCheck();
+		this.checkWallPlace();
 		
     },
     
