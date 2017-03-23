@@ -26,6 +26,7 @@ var mainState = {
 	    this.createWall(150, 150);
     
 		// create wall
+		this.placeWall = false;
 		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
 		game.physics.arcade.enable(this.translucentWall);
         this.translucentWall.anchor.setTo(0.5, 0.5);
@@ -39,8 +40,16 @@ var mainState = {
 			this.translucentWall.alpha = 0.5;
 			this.translucentWall.x = game.input.mousePointer.x;
 			this.translucentWall.y = game.input.mousePointer.y;	
+			this.placeWall = true;
 		}
-		else { this.translucentWall.alpha = 0.0; }
+		else {
+			this.translucentWall.alpha = 0.0;
+			if (this.placeWall) {
+				this.createWall(game.input.mousePointer.x, game.input.mousePointer.y);
+				this.placeWall = false;
+			}
+			
+		}
     },
     
     restartGame: function() {
