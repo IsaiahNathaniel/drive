@@ -71,9 +71,12 @@ var mainState = {
    
     
     player_oneInit: function() {
-		// mouse events for creating obstacles
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
+		this.movement.left = game.input.keyboard.addKey(Phaser.Keyboard.A);
+		this.movement.right = game.input.keyboard.addKey(Phaser.Keyboard.D);
+		this.movement.up = game.input.keyboard.addKey(Phaser.Keyboard.W);
+		this.movement.down = game.input.keyboard.addKey(Phaser.Keyboard.S);
         this.secretSpeed = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD_2);
         this.brakeVehicle = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.player_one = this.game.add.sprite(400, 550, 'player');
