@@ -164,7 +164,7 @@ var mainState = {
         }
         //right turning
         if (this.movement.right.isDown){
-            if (this.player_one.rightTurnMod > 0 && this.player_one.speed != 0) {
+            if (this.player_one.rightTurnMod > 0 && (this.player_one.speed > 0.5 || this.player_one.speed < -0.5)) {
                 this.player_one.rotation += (this.player_one.rightTurnMod * 0.0174533);
             }    
             if (this.player_one.rightTurnMod < this.player_one.maxTurnRate) {
