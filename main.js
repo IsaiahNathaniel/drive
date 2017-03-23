@@ -33,6 +33,8 @@ var mainState = {
 		this.playerInputCheck();
 		this.checkWallPlace();
 		
+		game.physics.arcade.collide(this.player_one, this.walls, null);
+		
     },
     
     restartGame: function() {
