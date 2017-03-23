@@ -151,7 +151,7 @@ var mainState = {
     checkPlayerTurn: function() {
         // left turning
         if (this.movement.left.isDown){
-           if (this.player_one.leftTurnMod > 0 && this.player_one.speed != 0) {
+           if (this.player_one.leftTurnMod > 0 && (this.player_one.speed > 0.5 || this.player_one.speed < -0.5)) {
                this.player_one.rotation -= (this.player_one.leftTurnMod * 0.0174533);    // it's easier to visualize rotation amount in degrees -> radians
            }
            if (this.player_one.leftTurnMod < this.player_one.maxTurnRate) {
