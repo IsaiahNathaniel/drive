@@ -64,7 +64,7 @@ var mainState = {
     
     createWall : function(xPos, yPos) {
         newWall = walls.create(xPos, yPos, 'wall');
-		newWall.enableBody = true;
+		game.physics.arcade.enable(this.newWall);
         newWall.anchor.setTo(0.5, 0.5);
         newWall.scale.setTo(0.1, 0.1);
         
@@ -83,7 +83,7 @@ var mainState = {
         this.brakeVehicle = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
-        game.physics.arcade.enable(this.player_one)
+        game.physics.arcade.enable(this.player_one);
         this.player_one.anchor.setTo(0.2, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 0;
