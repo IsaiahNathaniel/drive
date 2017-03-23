@@ -132,6 +132,12 @@ var mainState = {
      
     },
 	
+	collisionDetected: function() {
+		console.log("COLLLISIIONNN");
+		
+		
+	},
+	
 	checkWallPlace: function() {
 		if (this.createWallKey.isDown) {
 			this.translucentWall.alpha = 0.5;
