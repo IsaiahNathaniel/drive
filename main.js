@@ -25,17 +25,21 @@ var mainState = {
         this.createWall(100, 100);
 	    this.createWall(150, 150);
     
+		// create wall
+		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
+		game.physics.arcade.enable(this.translucentWall);
+        this.translucentWall.anchor.setTo(0.5, 0.5);
+        this.translucentWall.scale.setTo(0.1, 0.1);
+		this.translucentWall.alpha = 0.0;
     },
     
     update: function() {
 		this.playerInputCheck();
-		this.checkPlayerMouse();
-		
-		if (this.triggerWallUpdate === 1) {
+		if (this.createWallKey.isDown) {
+			this.translucentWall.alpha = 0.5;
 			this.translucentWall.x = game.input.mousePointer.x;
-			this.translucentWall.y = game.input.mousePointer.y;
+			this.translucentWall.y = game.input.mousePointer.y;	
 		}
-		
     },
     
     restartGame: function() {
@@ -122,20 +126,7 @@ var mainState = {
     },
 	
 	checkPlayerMouse: function() {
-		if (this.createWallKey.isDown) {
-			this.triggerWallUpdate = 1;
-			this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
-			this.translucentWall.exists = 1;
-			game.physics.arcade.enable(this.translucentWall);
-        	this.translucentWall.anchor.setTo(0.5, 0.5);
-        	this.translucentWall.scale.setTo(0.1, 0.1);
-			this.translucentWall.alpha = 0.5;
-			
-		} else if (this.translucentWall.exists) {
-			this.translucentWall.destroy();
-			this.translucentWall.exists = 0;
-			this.triggerWallUpdate = 0;
-			}
+		
 	},
     
     checkPlayerTurn: function() {
