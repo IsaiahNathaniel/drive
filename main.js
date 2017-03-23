@@ -37,7 +37,6 @@ var mainState = {
     },
     
     restartGame: function() {
-		game.input.mouse.stop();
         // Restarts game
         game.state.start('main');
     },
@@ -65,7 +64,6 @@ var mainState = {
     
     player_oneInit: function() {
 		// mouse events for creating obstacles
-		game.input.mouse.start();
         // directional keys
         this.movement = game.input.keyboard.createCursorKeys();
         this.secretSpeed = game.input.keyboard.addKey(Phaser.Keyboard.NUMPAD_2);
