@@ -170,6 +170,5 @@ var mainState = {
     
 };
 
-game.state.add('title', titleState);
 game.state.add('main', mainState);
 game.state.start('main');
