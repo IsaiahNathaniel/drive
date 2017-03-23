@@ -129,7 +129,7 @@ var mainState = {
         	this.translucentWall.scale.setTo(0.1, 0.1);
 			this.translucentWall.alpha = 0.5;
 			
-		} else if (this.translucentWall.exists = 1) {
+		} else if (this.translucentWall.exists) {
 				this.translucentWall.destroy();
 				this.translucentWall.exists = 0
 			}
