@@ -40,6 +40,7 @@ var mainState = {
 			this.translucentWall.x = game.input.mousePointer.x;
 			this.translucentWall.y = game.input.mousePointer.y;	
 		}
+		else { this.translucentWall.alpha = 0.0; }
     },
     
     restartGame: function() {
