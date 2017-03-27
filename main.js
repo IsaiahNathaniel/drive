@@ -16,6 +16,7 @@ var mainState = {
     
     create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
+		game.physics.startSystem(Phaser.Physics.NINJA);
         this.game.renderer.renderSession.roundPixels = true;
         // player inits
         this.player_oneInit();
@@ -33,8 +34,8 @@ var mainState = {
 		this.playerInputCheck();
 		this.checkWallPlace();
 		
-		game.physics.arcade.collide(this.player_one, this.walls, null, null, this);
-		game.physics.arcade.collide(this.walls, this.walls, null, null, this);
+		game.physics.ninja.collide(this.player_one, this.walls, this.collisionDetected, null, this);
+		game.physics.ninja.collide(this.walls, this.walls, null, null, this);
 		
     },
     
@@ -55,7 +56,7 @@ var mainState = {
 		// transparent wall sprite init
 		this.placeWall = false;
 		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
-		game.physics.arcade.enable(this.translucentWall);
+		game.physics.physics.enable(this.translucentWall);
         this.translucentWall.anchor.setTo(0.5, 0.5);
         this.translucentWall.scale.setTo(0.1, 0.1);
 		this.translucentWall.alpha = 0.0;
@@ -85,7 +86,7 @@ var mainState = {
         this.brakeVehicle = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
-        game.physics.arcade.enable(this.player_one);
+        game.physics.ninja.enableAABB(this.player_one);
         this.player_one.anchor.setTo(0.2, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 0;
