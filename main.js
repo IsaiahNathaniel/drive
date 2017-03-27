@@ -33,8 +33,8 @@ var mainState = {
 		this.playerInputCheck();
 		this.checkWallPlace();
 		
-		game.physics.arcade.collide(this.player_one, this.walls, null, null, this);
-		game.physics.arcade.collide(this.walls, this.walls, null, null, this);
+		game.physics.arcade.collide(this.player_one, this.walls, null, this);
+		game.physics.arcade.collide(this.walls, this.walls, this., this);
 		
     },
     
@@ -68,6 +68,7 @@ var mainState = {
 		newWall.enableBody = true;
         newWall.anchor.setTo(0.5, 0.5);
         newWall.scale.setTo(0.1, 0.1);
+		newWall.outOfBoundsKill = true;
         
     },
     
@@ -134,7 +135,7 @@ var mainState = {
     },
 	
 	collisionDetected: function() {
-		console.log("COLLLISIIONNN");
+		this.player_one.speed = 0;
 		
 		
 	},
