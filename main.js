@@ -137,7 +137,6 @@ var mainState = {
     },
 	
 	collisionDetected: function() {
-		this.player_one.speed = 0;
 		
 		
 	},
