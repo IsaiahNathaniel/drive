@@ -34,7 +34,9 @@ var mainState = {
     update: function() {
 		this.playerInputCheck();
 		this.checkWallPlace();
-		console.log('player.speed' + this.player_one.speed);
+		console.log('player.speed ' + this.player_one.speed);
+		console.log('player.rotation ' + this.player_one.rotation);
+		console.log('player.vel ' + this.player_one.velocity);
 		
 		game.physics.ninja.collide(this.player_one, this.walls, this.collisionDetected, null, this);
 		game.physics.ninja.collide(this.walls, this.walls, null, null, this);
