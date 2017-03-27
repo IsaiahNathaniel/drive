@@ -33,7 +33,8 @@ var mainState = {
 		this.playerInputCheck();
 		this.checkWallPlace();
 		
-		game.physics.arcade.collide(this.player_one, this.walls, this.collisionDetected, null, this);
+		game.physics.arcade.collide(this.player_one, this.walls, null, null, this);
+		game.physics.arcade.collide(this.walls, this.walls, null, null, this);
 		
     },
     
