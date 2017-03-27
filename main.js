@@ -44,12 +44,12 @@ var mainState = {
     
     walls_Init : function() {
 		// walls group
-        walls = game.add.group();
-        walls.enableBody = true;
-        walls.setAll("anchor.x", 0.5);
-        walls.setAll("anchor.y", 0.5);
-        walls.setAll("scale.x", 0.05);
-        walls.setAll("scale.y", 0.05);
+        this.walls = game.add.group();
+        this.walls.enableBody = true;
+        this.walls.setAll("anchor.x", 0.5);
+        this.walls.setAll("anchor.y", 0.5);
+        this.walls.setAll("scale.x", 0.05);
+        this.walls.setAll("scale.y", 0.05);
 		
 		// transparent wall sprite init
 		this.placeWall = false;
