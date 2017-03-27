@@ -34,7 +34,7 @@ var mainState = {
 		this.checkWallPlace();
 		
 		game.physics.arcade.collide(this.player_one, this.walls, null, this);
-		game.physics.arcade.collide(this.walls, this.walls, this., this);
+		game.physics.arcade.collide(this.walls, this.walls, null, this);
 		
     },
     
