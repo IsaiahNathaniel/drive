@@ -18,6 +18,7 @@ var mainState = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.physics.startSystem(Phaser.Physics.NINJA);
         this.game.renderer.renderSession.roundPixels = true;
+		game.physics.ninja.gravity = false;
         // player inits
         this.player_oneInit();
 		this.triggerWallUpdate = 0;
@@ -87,7 +88,6 @@ var mainState = {
         this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
         game.physics.ninja.enableAABB(this.player_one);
-		game.physics.ninja.gravity = false;
         this.player_one.anchor.setTo(0.2, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 0;
