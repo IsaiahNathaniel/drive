@@ -56,7 +56,7 @@ var mainState = {
 		// transparent wall sprite init
 		this.placeWall = false;
 		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
-		game.physics.physics.enable(this.translucentWall);
+		game.physics.ninja.enable(this.translucentWall);
         this.translucentWall.anchor.setTo(0.5, 0.5);
         this.translucentWall.scale.setTo(0.1, 0.1);
 		this.translucentWall.alpha = 0.0;
