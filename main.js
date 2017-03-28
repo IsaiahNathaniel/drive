@@ -15,7 +15,6 @@ var mainState = {
     },
     
     create: function() {
-        game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.physics.startSystem(Phaser.Physics.NINJA);
         this.game.renderer.renderSession.roundPixels = true;
 		game.physics.ninja.gravity = false;
