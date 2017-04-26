@@ -15,9 +15,8 @@ var mainState = {
     },
     
     create: function() {
-		game.physics.startSystem(Phaser.Physics.NINJA);
+        game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.renderer.renderSession.roundPixels = true;
-		game.physics.ninja.gravity = false;
         // player inits
         this.player_oneInit();
 		this.triggerWallUpdate = 0;
@@ -33,13 +32,9 @@ var mainState = {
     update: function() {
 		this.playerInputCheck();
 		this.checkWallPlace();
-		console.log('player.speed ' + this.player_one.speed);
-		console.log('player.rotation ' + this.player_one.rotation);
-		console.log('player.vel.x ' + this.player_one.body.velocity.x);
-		console.log('player.vel.y ' + this.player_one.body.velocity.y);
 		
-		game.physics.ninja.collide(this.player_one, this.walls, this.collisionDetected, null, this);
-		game.physics.ninja.collide(this.walls, this.walls, null, null, this);
+		game.physics.arcade.collide(this.player_one, this.walls, null, null, this);
+		game.physics.arcade.collide(this.walls, this.walls, null, null, this);
 		
     },
     
@@ -60,7 +55,7 @@ var mainState = {
 		// transparent wall sprite init
 		this.placeWall = false;
 		this.translucentWall = this.game.add.sprite(game.world.centerX, game.world.centerY, 'wall');
-		game.physics.ninja.enableAABB(this.translucentWall);
+		game.physics.arcade.enable(this.translucentWall);
         this.translucentWall.anchor.setTo(0.5, 0.5);
         this.translucentWall.scale.setTo(0.1, 0.1);
 		this.translucentWall.alpha = 0.0;
@@ -90,7 +85,7 @@ var mainState = {
         this.brakeVehicle = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.player_one = this.game.add.sprite(400, 550, 'player');
         this.player_one.scale.setTo(0.06, 0.06);
-        game.physics.ninja.enableBody(this.player_one);
+        game.physics.arcade.enable(this.player_one);
         this.player_one.anchor.setTo(0.2, 0.5);
         this.player_one.body.collideWorldBounds = true;
         this.player_one.angle = 0;
@@ -140,6 +135,7 @@ var mainState = {
     },
 	
 	collisionDetected: function() {
+		this.player_one.speed = 0;
 		
 		
 	},
